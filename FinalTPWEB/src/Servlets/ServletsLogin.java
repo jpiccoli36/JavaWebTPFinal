@@ -49,7 +49,7 @@ public class ServletsLogin extends HttpServlet {
 			{
 			
 			request.getSession().setAttribute("user", pers);	
-			request.getSession().setAttribute("categoria", pers);
+			request.getSession().setAttribute("admin", pers);
 			request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);
 			}
 			else{

@@ -1,6 +1,7 @@
 package Servlets;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -48,24 +49,33 @@ public class ServletsAltaReserva extends HttpServlet {
 		ControladorReservas cr= new ControladorReservas();
 		String usuario=(String) request.getSession().getAttribute("usuario");
 		
-		System.out.println(usuario);
-		ArrayList<Elemento> el = new ArrayList<Elemento>();
+		
+		
 		SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		java.util.Date FechaHoraIni = null;
 		java.util.Date FechaHoraFin = null;
 		try {
-			FechaHoraIni = f.parse((String) request.getAttribute("horaini"));
-			FechaHoraFin = f.parse((String)request.getAttribute("horafin"));
+			FechaHoraIni = f.parse(request.getParameter("horaini"));
+			FechaHoraFin = f.parse((String)request.getParameter("horafin"));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Object TipoEl =request.getAttribute("tipoel");
-		el=ce.ConsultaTodosTiposElementos();
+		String TipoEl =request.getParameter("tipoel");	
+		Reservas r = new Reservas();
+		//r.setFhfin((java.sql.Date) FechaHoraFin);
+		//r.setFhinicio((java.sql.Date) FechaHoraIni);
+		r.setTipoElemento(TipoEl);
+		r.setUsuario(usuario);		
+		request.getSession().setAttribute("horaini",FechaHoraFin);
+		request.getSession().setAttribute("horafin",FechaHoraIni);
+		request.getSession().setAttribute("Tipoel",r.getTipoElemento());
+		request.getSession().setAttribute("user",r.getUsuario());	
+		
 		re=cr.ConsultaElementosDisponibles(FechaHoraIni, FechaHoraFin, TipoEl)	;
-		request.setAttribute("listaelementos", re);
-		request.setAttribute("listaele", el);
-		request.getRequestDispatcher("Reservar.jsp").forward(request, response);
+		request.setAttribute("listaelementos", re);		
+		request.getRequestDispatcher("WEB-INF/AltaReserva.jsp").forward(request, response);
+		
 	}
 
 }

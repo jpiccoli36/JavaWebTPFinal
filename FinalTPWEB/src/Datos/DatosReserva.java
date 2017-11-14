@@ -40,7 +40,7 @@ public class DatosReserva {
 				while (rs.next()) {
 					Reservas r = new Reservas();
 					r.setElemento(rs.getString("NombreElementoReserva"));
-					r.setTipoElemento(rs.getString("TipoElemento"));
+					r.setTipoElemento(rs.getString("TipoElemento"));				
 					re.add(r);
 
 				}

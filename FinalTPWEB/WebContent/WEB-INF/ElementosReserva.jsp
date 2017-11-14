@@ -19,27 +19,35 @@
 			<label for="horaini" class="sr-only">Hora Inicio</label> <input
 				name="horaini" id="horaini" class="form-control"
 				placeholder="dd-mm-yyyy hh:mm" required="" autofocus="" type="">
-			<label for="horafin" class="sr-only">Hora Fin</label> <input
+			<Br> <label for="horafin" class="sr-only">Hora Fin</label> <input
 				name="horafin" id="horafin" class="form-control"
-				placeholder="dd-mm-yyyy hh:mm" required="" type="">
-			<button class="btn btn-lg btn-primary btn-block" type="submit">hola</button>
-			
+				placeholder="dd-mm-yyyy hh:mm" required="" type=""> <Br>
+			<label for="tipoel" class="sr-only">Tipo Elemento</label> <input
+				name="tipoel" id="tipoel" class="form-control"
+				placeholder="Tipo Elemento" required="" type=""> <Br>
+				
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Buscar
+				Elementos</button>
+
 		</form>
 		<table>
-		<%
-			ArrayList<Elemento> ele= (ArrayList<Elemento>)request.getAttribute("listaele");
-			for(Elemento p : ele){
-		%>
-		<tr>
-			<td><%=p.getTipoElementoReserva() %> &nbsp;</td>
-		>
+			Tipo Elementos
+			<Br>
 
-		</tr>
-		<%
-			}
-		%>
-	</table>
-			
+
+			<%
+				ArrayList<Elemento> ele = (ArrayList<Elemento>) request.getAttribute("listaele");
+				for (Elemento p : ele) {
+			%>
+			<tr>
+				<td><%=p.getNombre_elemento()%> &nbsp;</td> >
+
+			</tr>
+			<%
+				}
+			%>
+		</table>
+
 
 	</div>
 	<!-- /container -->

@@ -37,10 +37,7 @@ ArrayList<Reservas> res= (ArrayList<Reservas>) request.getAttribute("listar");
 }
 %>
 
-			</select>
-
-
-
-			</form>
+			
+						</form>
 </body>
 </html>

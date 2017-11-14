@@ -14,9 +14,13 @@
 	<form action="ServletsVerReservas" method="post">
 		<input type="submit" value="Ver Reservas" />
 	</form>
-<form action="Reservar.jsp" method="post">
+<form action="ServletVerElementos" method="post">
 		<input type="submit" value="Alta Reserva" />
 	</form>
+		<form action="ServletsBuscarReserva" method="post">
+		<input type="submit" value="Baja Reservas" />
+	</form>
+	
 	
 <form action="login.html" method="post">
 		<input type="submit" value="Salir" />
