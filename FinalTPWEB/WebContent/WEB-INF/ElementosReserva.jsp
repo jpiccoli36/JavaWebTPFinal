@@ -18,10 +18,10 @@
 			<h2 class="form-signin-heading">Reserva</h2>
 			<label for="horaini" class="sr-only">Hora Inicio</label> <input
 				name="horaini" id="horaini" class="form-control"
-				placeholder="dd-mm-yyyy hh:mm" required="" autofocus="" type="">
+				placeholder="dd/mm/yyyy hh:mm" required="" autofocus="" type="">
 			<Br> <label for="horafin" class="sr-only">Hora Fin</label> <input
 				name="horafin" id="horafin" class="form-control"
-				placeholder="dd-mm-yyyy hh:mm" required="" type=""> <Br>
+				placeholder="dd/mm/yyyy hh:mm" required="" type=""> <Br>
 			<label for="tipoel" class="sr-only">Tipo Elemento</label> <input
 				name="tipoel" id="tipoel" class="form-control"
 				placeholder="Tipo Elemento" required="" type=""> <Br>

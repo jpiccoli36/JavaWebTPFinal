@@ -18,18 +18,18 @@
 		<input type="submit" value="Salir" />
 	</form>
 	<form action="ServletsVerReservas">
+
 		<table>
 			<% 
 
 ArrayList<Reservas> res= (ArrayList<Reservas>) request.getAttribute("listar");
 %>
-
+Elemento &nbsp TipoElemento
 			<% for(Reservas re: res){ %>
 			<tr>
-				<td><%=re.getElemento() %></td>
+				<td><%=re.getElemento()%></td>
 				<td><%=re.getTipoElemento() %></td>
-				<td><%=(re.getFhinicio()) %></td>
-				<td><%=re.getFhfin() %></td>
+				
 			</tr>
 			<%
 

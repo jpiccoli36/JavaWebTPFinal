@@ -17,7 +17,7 @@
 <form action="ServletVerElementos" method="post">
 		<input type="submit" value="Alta Reserva" />
 	</form>
-		<form action="ServletsBuscarReserva" method="post">
+		<form action="ServletsBuscarReservaUsuario" method="post">
 		<input type="submit" value="Baja Reservas" />
 	</form>
 	
