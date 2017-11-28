@@ -235,6 +235,32 @@ public class DatosElementos {
 		}
 
 	}
+	
+	public Elemento ConsultarTipoElemento(int id){
+		java.sql.PreparedStatement stmt = null;
+		ResultSet rs;
+		Elemento e = new Elemento();
+		try {
+			stmt = FactoryConexion.getInstancia().getConn()
+					.prepareStatement("select * from tiposelementos where idElementos=?");
+			stmt.setInt(1, id);
+			rs=stmt.executeQuery();
+			
+			rs.next();
+			e.setId_elemento(rs.getInt("idElementos"));
+			e.setNombre_elemento(rs.getString("NombreElemento"));
+			e.setCantidad_elemento(rs.getInt("CantidadElementos"));
+			 
+			
+			stmt.close();
+			return e;
+		} catch (SQLException w) {
+
+			w.printStackTrace();
+		}
+		return e;
+	}
+	
 
 	public void BajaTipoElemento(int idelemento) {
 		java.sql.PreparedStatement stmt = null;

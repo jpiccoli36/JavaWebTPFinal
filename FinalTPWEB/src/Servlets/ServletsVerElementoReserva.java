@@ -11,41 +11,27 @@ import javax.servlet.http.HttpServletResponse;
 
 import Controlador.ControladorElementos;
 import Entidades.Elemento;
-import Entidades.Reservas;
 
-/**
- * Servlet implementation class ServletVerElementos
- */
-@WebServlet("/ServletVerElementos")
-public class ServletVerElementos extends HttpServlet {
+@WebServlet("/ServletsVerElementoReserva")
+public class ServletsVerElementoReserva extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletVerElementos() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    public ServletsVerElementoReserva() {
+        super();
+            }
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ControladorElementos ce = new ControladorElementos();
-		
-		ArrayList<Elemento> el = new ArrayList<Elemento>();
-		el=ce.ConsultaTodosTiposElementos();		
-		request.setAttribute("listaele",el);
-		request.getRequestDispatcher("WEB-INF/ElementosReserva.jsp").forward(request,response);
-	}
-		
+		ArrayList<Elemento> ae = new ArrayList<Elemento>();
+		ae=ce.ConsultaTodosTiposElementos();
+		request.setAttribute("listaelementos", ae);
+		request.getRequestDispatcher("WEB-INF/SeleccionarElementoReserva.jsp").forward(request, response);
 		
 	}
 
-
+}

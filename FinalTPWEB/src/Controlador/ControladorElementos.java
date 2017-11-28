@@ -57,6 +57,7 @@ public Elemento CantidadMaxReservas(String tipo) {
 	return de.CantidadMaxReservas(tipo);
 	
 }
-
-
+public Elemento ConsultarTipoElemento(int idelemento){
+return de.ConsultarTipoElemento(idelemento);
+}
 }

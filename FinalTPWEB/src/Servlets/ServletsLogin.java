@@ -57,7 +57,7 @@ public class ServletsLogin extends HttpServlet {
 				request.getSession().setAttribute("usuario", user);
 			request.getSession().setAttribute("categoria", pers);
 			request.getRequestDispatcher("WEB-INF/Usuario.jsp").forward(request, response);
-				 //no se como mandar cuando no esta en web-inf
+				
 			}
 			
 		//	response.getWriter().append(user).append(" ").append(pass);
