@@ -8,34 +8,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Controlador.ControladorElementos;
-import Entidades.Elemento;
 
-@WebServlet("/ServletsAltaElementoReserva")
-public class ServletsAltaElementoReserva extends HttpServlet {
+/**
+ * Servlet implementation class BajaElemento
+ */
+@WebServlet("/ServletsBajaElemento")
+public class ServletsBajaElemento extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-  
-    public ServletsAltaElementoReserva() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ServletsBajaElemento() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ControladorElementos ce = new ControladorElementos();
-		String nombre=request.getParameter("nombreelementoreserva");
-		Elemento w = new Elemento();
-		w.setNombre_elemento(nombre);
-		Object TipoEl=request.getParameter("nombretipoelemento");
-		
-		ce.AgregarElemento(w, TipoEl);
+		ControladorElementos ce=new ControladorElementos();
+		int id=Integer.parseInt(request.getParameter("idelemento"));
+		ce.BajaTipoElemento(id);
 	}
 
 }

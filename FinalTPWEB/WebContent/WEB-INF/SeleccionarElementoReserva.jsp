@@ -15,10 +15,10 @@
 			method="post">
 			<h2 class="form-signin-heading">Tipo Elementos</h2>
 			<% ArrayList<Elemento> ele = (ArrayList<Elemento>) request.getAttribute("listaelementos");	%>
-				<select name="idelemento">
+				<select name="nombretipoelemento">
 				
 			<%	for (Elemento e : ele) {%>
- <option value="<%=e.getId_elemento()%>"> <%=e.getNombre_elemento()%></option>
+ <option value="<%=e.getNombre_elemento()%>"> <%=e.getNombre_elemento()%></option>
 
  
  <%

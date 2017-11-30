@@ -130,7 +130,7 @@ public class DatosElementos {
 			stmt.setString(1, e.getNombre_elemento());
 			stmt.setObject(2, ob);
 			stmt.executeUpdate();
-			JOptionPane.showMessageDialog(null, "Elemento Reserva Agregado");
+	
 			
 			stmt.close();
 		} catch (SQLException e1) {
@@ -163,7 +163,7 @@ public class DatosElementos {
 
 			s.printStackTrace();
 		}
-		JOptionPane.showMessageDialog(null, "Elemento Agregado");
+		
 		try {
 			stmt.close();
 		} catch (SQLException e1) {
@@ -188,7 +188,7 @@ public class DatosElementos {
 		} catch (SQLException s) {
 			s.printStackTrace();
 		}
-		JOptionPane.showMessageDialog(null, "Elemento Eliminado");
+		
 		try {
 			stmt.close();
 		} catch (SQLException e1) {
