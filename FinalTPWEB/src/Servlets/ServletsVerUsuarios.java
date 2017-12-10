@@ -1,25 +1,28 @@
 package Servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Controlador.ControladorElementos;
+import Controlador.ControladorUsuario;
+import Entidades.Persona;
 
 /**
- * Servlet implementation class BajaElemento
+ * Servlet implementation class ServletsVerUsuarios
  */
-@WebServlet("/ServletsBajaElemento")
-public class ServletsBajaElemento extends HttpServlet {
+@WebServlet("/ServletsVerUsuarios")
+public class ServletsVerUsuarios extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletsBajaElemento() {
+    public ServletsVerUsuarios() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,12 +39,11 @@ public class ServletsBajaElemento extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ControladorElementos ce=new ControladorElementos();
-		int id=Integer.parseInt(request.getParameter("idelemento"));
-		ce.BajaTipoElemento(id);
-		
-		request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);
+		ControladorUsuario cu=new ControladorUsuario();
+		ArrayList<Persona>per=new ArrayList<Persona>();
+		per=cu.ConsultaTodosUsuarios();
+		request.setAttribute("listausu", per);
+		request.getRequestDispatcher("WEB-INF/BajaUsuario.jsp").forward(request, response);
 	}
 
 }

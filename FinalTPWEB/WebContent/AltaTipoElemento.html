@@ -7,16 +7,16 @@
 
 <body>
 	<form name="Alta Elemento" action="ServletsAltaElemento" method="post">
-		Nombre</label> <input name="Nombre" id="Nombre" class="form-control"
-			placeholder="Nombre"> <label><br /> Cantidad</label> <input
+		<label>Nombre </label><input name="Nombre" id="Nombre" class="form-control"
+			placeholder="Nombre" required type="text"> <label><br /> Cantidad</label> <input
 			name="Cantidad" id="Cantidad" class="form-control"
-			placeholder="Cantidad"> <label>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Alta
+			placeholder="Cantidad" required type="number"> <label>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Agregar Tipo
 			Elemento</button>
 	</form>
 	<br />
 	<form action="ServletsAdmin" method="post">
-		<input type="submit" value="Salir" />
+		<input type="submit" value="Volver al menú" />
 	</form>
 </html>
 </body>

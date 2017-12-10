@@ -10,14 +10,25 @@
 </head>
 <body>
 	<form action="ServletsCancelarTodasReservas" method="post">
-		<label for="idreserva" class="sr-only">User</label> <input
+		<label for="idreserva" class="sr-only">ID Reserva</label> <input
 				name="idreserva" id="idreserva" class="form-control" placeholder="ID Reserva"
 				required="" autofocus="" type="">
 		<input type="submit" value="Cancelar Reserva" />
 		</form>
-
+<form action="ServletsAdmin" method="post">
+		<input type="submit" value="Volver al menú" />
+	</form>
 
 	<table>
+	<thead>
+       <tr>
+           <th>ID-RESERVA</th>
+           <th>USUARIO</th>
+           <th>ELEMENTO</th>
+           <th>TIPO ELEMENTO</th>
+       </tr>
+   </thead>
+   <tbody>
 		<%
 			ArrayList<Reservas>listaRes= (ArrayList<Reservas>)request.getAttribute("listaReservas");
 			for(Reservas r : listaRes){
@@ -33,6 +44,7 @@
 		<%
 			}
 		%>
+		</tbody>
 	</table>
 
 </body>

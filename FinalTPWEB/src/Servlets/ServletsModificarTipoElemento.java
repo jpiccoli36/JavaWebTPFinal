@@ -37,6 +37,7 @@ public class ServletsModificarTipoElemento extends HttpServlet {
 		e.setNombre_elemento(nombre);
 		e.setCantidad_elemento(cantidad);
 		ce.ModificarTipoElementos(e);	
+		request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);
 		
 	}
 

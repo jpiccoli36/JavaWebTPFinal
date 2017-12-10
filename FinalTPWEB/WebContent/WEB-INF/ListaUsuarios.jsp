@@ -15,9 +15,19 @@
 		Bienvenido
 		<%=((Persona)session.getAttribute("user")).getNombre() %></h1>
 			<form action="ServletsAdmin" method="post">
-		<input type="submit" value="Salir" />
+		<input type="submit" value="Volver al menú" />
 	</form>
 	<table>
+	
+	<thead>
+       <tr>
+           <th>ID</th>
+           <th>DNI</th>
+           <th>APELLIDO</th>
+           <th>NOMBRE</th>
+       </tr>
+   </thead>
+   <tbody>
 		<%
 			ArrayList<Persona>listaPers= (ArrayList<Persona>)request.getAttribute("listaPersonas");
 			for(Persona p : listaPers){
@@ -32,6 +42,7 @@
 		<%
 			}
 		%>
+		</tbody>
 	</table>
 	
 </body>

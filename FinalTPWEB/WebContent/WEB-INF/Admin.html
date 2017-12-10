@@ -7,38 +7,43 @@
 <body>
 
 	<form action="AltaUsuario.html" method="post">
-		<input type="submit" value="Alta Usuario" />
+		<input type="submit" value="Agregar Usuario" />
 	</form>
-	<form action="BajaUsuario.html" method="post">
-		<input name="submit" type="submit" value="Baja Usuario" />
+	<form action="ServletsVerUsuarios" method="post">
+		<input name="submit" type="submit" value="Eliminar Usuario" />
 	</form>
 	<form action="ServletsConsultarUsuarios" method="post">
+	<input type="hidden"
+				name="opcion" value="1" >	
 		<input type="submit" value="Ver Todos Usuarios" />
 	</form>
-	<form action="HabilitarUsuario.html" method="post">
-		<input type="submit" value="Habilitar Usuario" />
+	<form action="ServletsConsultarUsuarios" method="post">
+	<input type="hidden"
+				name="opcion" value="2" >	
+		<input type="submit" value="Habilitar/Inhabilitar Usuario" />
 	</form>
-	<form action="InhabilitarUsuario.html" method="post">
-		<input type="submit" value="Inhabilitar Usuario" />
-	</form>
+	
 	<form action="ServletsBuscarTodasReservas" method="post">
-		<input type="submit" value="Baja Reservas" />
+		<input type="submit" value="Eliminar Reservas" />
 	</form>
 		<form action="AltaTipoElemento.html" method="post">
-		<input type="submit" value="Alta Tipo Elemento" />
+		<input type="submit" value="Agregar Tipo Elemento" />
 	</form>	
 	<form action="ServletsVerTipoElementos" method="post">
-		<input type="submit" value="Baja Tipo Elemento" />
+		<input type="submit" value="Eliminar Tipo Elemento" />
 	</form>	
 		<form action="ServletsVerTipoElementosModificacion" method="post">
 		<input type="submit" value="Modificar Tipo Elemento" />
 	</form>	
 	<form action="ServletsVerElementoReserva" method="post">
-		<input type="submit" value="Alta Elemento" />
+		<input type="submit" value="Agregar Elemento" />
 	</form>	
 	<form action="ServletsVerTiposElementosBajaElementos" method="post">
-		<input type="submit" value="Baja Elemento" />
-	</form>	
+		<input type="submit" value="Eliminar Elemento" />
+	</form>
+	<form action="ServletsRecuperarTipoElementoModificacion" method="post">
+		<input type="submit" value="Modificar Elemento" />
+	</form>
 	<form action="login.html" method="post">
 		<input type="submit" value="Salir" />
 	</form>	

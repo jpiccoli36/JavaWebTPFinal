@@ -12,32 +12,30 @@ import javax.servlet.http.HttpServletResponse;
 import Controlador.ControladorElementos;
 import Entidades.Elemento;
 
-
-@WebServlet("/ServletsRecuperarElemento")
-public class ServletsRecuperarElemento extends HttpServlet {
+@WebServlet("/ServletsRecuperarElementoModificacion")
+public class ServletsRecuperarElementoModificacion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-  
-    public ServletsRecuperarElemento() {
+ 
+    public ServletsRecuperarElementoModificacion() {
         super();
-     
+      
     }
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ControladorElementos ce=new ControladorElementos();
-		Object el=request.getParameter("idelemento");
-		ArrayList<Elemento>ae=new ArrayList<Elemento>();
-		ae=ce.SeleccionarTiposElementos(el);
+		ControladorElementos ce= new ControladorElementos();
+		Object tipoEl=request.getParameter("tipoelemento");
+		ArrayList<Elemento> ae=new ArrayList<Elemento>();
+		ae=ce.ConsultaTodosElementos(tipoEl);
 		request.setAttribute("listaele", ae);
-		request.getRequestDispatcher("WEB-INF/BajaElemento.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("WEB-INF/VerElementosAModificar.jsp").forward(request, response);
 	}
 
 }

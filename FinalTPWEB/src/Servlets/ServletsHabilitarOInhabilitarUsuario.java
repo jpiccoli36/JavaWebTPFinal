@@ -11,16 +11,16 @@ import Controlador.ControladorUsuario;
 import Entidades.Persona;
 
 /**
- * Servlet implementation class ServletsInhabilitarUsuario
+ * Servlet implementation class ServletsHabilitarUsuario
  */
-@WebServlet("/ServletsInhabilitarUsuario")
-public class ServletsInhabilitarUsuario extends HttpServlet {
+@WebServlet("/ServletsHabilitarOInhabilitarUsuario")
+public class ServletsHabilitarOInhabilitarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletsInhabilitarUsuario() {
+    public ServletsHabilitarOInhabilitarUsuario() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,11 +37,17 @@ public class ServletsInhabilitarUsuario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id=Integer.parseInt(request.getParameter("idusuario"));	
+	
+		int id=Integer.parseInt(request.getParameter("idusuario"));		
 		Persona p = new Persona();
 		p.setId(id);		
 		ControladorUsuario cu = new ControladorUsuario();
-		cu.InhabilitarUsuario(p);
+		if(request.getParameter("estado").equals("habilitado")){
+		cu.HabilitarUsuario(p);}
+		else{
+			cu.InhabilitarUsuario(p);
+		}
+		request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);
 		
 	
 	}

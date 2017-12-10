@@ -1,6 +1,8 @@
 package Servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Controlador.ControladorUsuario;
+import Entidades.Persona;
 
 /**
  * Servlet implementation class ServletsConsultarUsuarios
@@ -35,13 +38,17 @@ public class ServletsConsultarUsuarios extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ControladorUsuario cu = new ControladorUsuario();
-		try {
-			request.setAttribute("listaPersonas", cu.ConsultaTodosUsuarios());
-		} catch (Exception ade) {
-			request.setAttribute("Error", ade.getMessage());
-		}
+		ArrayList<Persona> ap= new ArrayList<Persona>();
+		ap=cu.ConsultaTodosUsuarios();
+		if(request.getParameter("opcion").equals("1")){
+		request.setAttribute("listaPersonas", ap);		
 		request.getRequestDispatcher("WEB-INF/ListaUsuarios.jsp").forward(request, response);
-		
+		}
+		else{
+			request.setAttribute("listausu",ap);
+			request.getRequestDispatcher("WEB-INF/HabilitarOInhabilitarUsuario.jsp").forward(request, response);
+			
+		}
 	}
 
 }

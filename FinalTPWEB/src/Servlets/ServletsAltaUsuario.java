@@ -47,11 +47,12 @@ public class ServletsAltaUsuario extends HttpServlet {
 		per.setNombre(Nombre);
 		per.setEmail(Email);
 		per.setUsuario(Usuario);		
-		per.setEstados(habilitado);		
+		per.setEstados(habilitado);
+		per.setCategoria(categoria);
 		ControladorUsuario ctrl= new ControladorUsuario();		
 		ctrl.AltaPersona(per);		
 		request.getSession().setAttribute("user", per);			
-		request.getRequestDispatcher("WEB-INF/AltaUsuario.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);
 	
 	}
 

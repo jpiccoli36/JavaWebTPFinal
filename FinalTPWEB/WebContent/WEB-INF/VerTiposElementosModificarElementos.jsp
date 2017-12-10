@@ -10,30 +10,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form class="form-signin" name="signin" action="ServletsRecuperarTipoElemento"
+<form class="form-signin" name="signin" action="ServletsRecuperarElementoModificacion"
 			method="post">
-			<h2 class="form-signin-heading">Modificacion Tipo Elemento</h2>
+			<h2 class="form-signin-heading">Modificar Elementos</h2>
 			<% ArrayList<Elemento> ele = (ArrayList<Elemento>) request.getAttribute("listaele");	%>
 			<label>Seleccionar Tipo Elemento:</label>
-				<select name="idelemento">
+				<select name="tipoelemento">
 				
 			<%	for (Elemento p : ele) {%>
- <option value="<%=p.getId_elemento()%>"> <%=p.getNombre_elemento()%></option>
+ <option value="<%=p.getNombre_elemento()%>"> <%=p.getNombre_elemento()%></option>
 
  
  <%
 			}
 					%>
-</select>											
-				
-			<button class="btn btn-lg btn-primary btn-block"   type="submit" >Modificar Tipo Elemento </button>
-			
+</select>	
+			<button class="btn btn-lg btn-primary btn-block"   type="submit" >Buscar Elementos </button>
+						
 		</form>	
-		
 		<form action="ServletsAdmin" method="post">
 		<input type="submit" value="Volver al menú" />
-	</form>
-			
+	</form>	
 			
 			
 			

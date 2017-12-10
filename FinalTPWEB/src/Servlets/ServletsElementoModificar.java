@@ -1,6 +1,8 @@
 package Servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,40 +10,38 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Controlador.ControladorElementos;
+import Entidades.Elemento;
 
-/**
- * Servlet implementation class BajaElemento
- */
-@WebServlet("/ServletsBajaElemento")
-public class ServletsBajaElemento extends HttpServlet {
+@WebServlet("/ServletsElementoModificar")
+public class ServletsElementoModificar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletsBajaElemento() {
+   
+    public ServletsElementoModificar() {
         super();
-        // TODO Auto-generated constructor stub
+    
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		ControladorElementos ce=new ControladorElementos();
+		Elemento e=new Elemento();
 		int id=Integer.parseInt(request.getParameter("idelemento"));
-		ce.BajaTipoElemento(id);
+		e=ce.ConsultarElemento(id);
+		request.setAttribute("nombre", e.getNombreElementoReserva());
+		request.setAttribute("tipoelemento", e.getTipoElementoReserva());
+		request.setAttribute("id", e.getIdElementosReserva());	
+		ArrayList<Elemento> ae=new ArrayList<Elemento>();
+		ae=ce.ConsultaTodosTiposElementos();
+		request.setAttribute("listatipo", ae);
+		request.getRequestDispatcher("WEB-INF/ModificarElemento.jsp").forward(request, response);
 		
-		request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);
 	}
 
 }

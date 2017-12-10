@@ -13,8 +13,9 @@
 <body>
 <form class="form-signin" name="signin" action="ServletsAltaElementoReserva"
 			method="post">
-			<h2 class="form-signin-heading">Tipo Elementos</h2>
+			<h2 class="form-signin-heading">Agregar Elemento</h2>
 			<% ArrayList<Elemento> ele = (ArrayList<Elemento>) request.getAttribute("listaelementos");	%>
+			<label>Seleccionar Tipo Elemento:</label>
 				<select name="nombretipoelemento">
 				
 			<%	for (Elemento e : ele) {%>
@@ -26,15 +27,17 @@
 					%>
 </select>	
 <Br>
-				<label for="nombreelementoreserva" class="sr-only">Nombre Elemento Reserva</label> <input
+				<label for="nombreelementoreserva" class="sr-only">Nombre Elemento</label> <input
 				name="nombreelementoreserva" id="nombreelementoreserva" class="form-control"
-				placeholder="Nombre Elemento Reserva" required="" type=""> <Br>										
+				placeholder="Nombre Elemento Reserva" required type="text"> <Br>										
 				
-			<button class="btn btn-lg btn-primary btn-block"   type="submit" >Alta Elemento Reserva</button>
+			<button class="btn btn-lg btn-primary btn-block"   type="submit" >Agregar Elemento</button>
 			
 		</form>	
 			
-			
+			<form action="ServletsAdmin" method="post">
+		<input type="submit" value="Volver al menú" />
+	</form>
 			
 			
 		

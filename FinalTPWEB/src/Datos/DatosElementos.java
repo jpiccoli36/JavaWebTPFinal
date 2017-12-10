@@ -277,6 +277,31 @@ public class DatosElementos {
 		}
 
 	}
+	public Elemento ConsultarElemento(int id){
+		java.sql.PreparedStatement stmt = null;
+		ResultSet rs;
+		Elemento e = new Elemento();
+		try {
+			stmt = FactoryConexion.getInstancia().getConn()
+					.prepareStatement("select * from elementos where IDElementosReserva=?");
+			stmt.setInt(1, id);
+			rs=stmt.executeQuery();
+			
+			rs.next();
+			e.setIdElementosReserva(rs.getInt("IDElementosReserva"));
+			e.setNombreElementoReserva(rs.getString("NombreElementoReserva"));
+			e.setTipoElementoReserva(rs.getString("TipoElemento"));
+			 
+			
+			stmt.close();
+			return e;
+		} catch (SQLException w) {
+
+			w.printStackTrace();
+		}
+		return e;
+	}
+	
 	public Elemento CantidadMaxReservas(String Tipo){
 		Elemento e = new Elemento();
 		ResultSet rs=null;

@@ -13,32 +13,45 @@
 <body>
 	<div class="container">
 
-		<form class="form-signin" name="signin" action="ServletsModificarTipoElemento"
+		<form class="form-signin" name="signin" action="ServletsModificarElemento"
 		
-			method="post">		
+			method="post">
+			
+		
+			
+			
 						
-			<h2 class="form-signin-heading">Modificacion Tipo Elemento</h2>
-						
-			<label for="nombreelemento" class="sr-only">Nombre Tipo Elemento</label> <input
+			<h2 class="form-signin-heading">Modificar Elemento</h2>
+			<label for="nombreelemento" class="sr-only">Nombre Elemento</label> <input
 				name="nombreelemento" id="nombreelemento" class="form-control"
 				placeholder="<%=request.getAttribute("nombre") %>" required type="text" autofocus="">
-			<Br> 
-			<label for="cantidadelemento" class="sr-only">Cantidad Tipo Elemento</label> <input
-				name="cantidadelemento" id="cantidadelemento" class="form-control"
-				placeholder="<%=request.getAttribute("cantidad") %>" required type="number"> <Br>
+					
+				<input type="hidden"
+				name="id" value="<%=request.getAttribute("id")%>" >				
+				<% ArrayList<Elemento> ele = (ArrayList<Elemento>) request.getAttribute("listatipo");	%>
+				<br><label>Seleccionar Tipo Elemento:</label>
+					<select name="tipoelemento">
 				
-			<input type="hidden"
-				name="idelemento" value="<%=request.getAttribute("id") %>" >
+			<%	for (Elemento p : ele) {%>
+ <option value="<%=p.getNombre_elemento()%>"> <%=p.getNombre_elemento()%></option>
+
+ 
+ <%
+			}
+					%>
+</select>	
 			
 				
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Aceptar</button>
 	
 		
 </form>
+
 	</div>
-<form action="ServletsAdmin" method="post">
+	<form action="ServletsAdmin" method="post">
 		<input type="submit" value="Cancelar" />
 	</form>
+
 
 </body>
 </html>

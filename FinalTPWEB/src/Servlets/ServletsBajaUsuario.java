@@ -33,16 +33,9 @@ public class ServletsBajaUsuario extends HttpServlet {
 		p.setId(idusuario);
 		ControladorUsuario cu= new ControladorUsuario();
 		cu.BajaPersonas(p);
+		request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);
 		
 	}
 
-	
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
 
 }

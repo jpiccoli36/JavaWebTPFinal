@@ -6,28 +6,41 @@
 </head>
 
 <body>
-	<form name="Alta Usuario" action="ServletsAltaUsuario" method="post">
+	<form name="Agregar Usuario" action="ServletsAltaUsuario" method="post">
+	
 		<label>DNI</label> <input name="DNI" id="DNI" class="form-control"
-			placeholder="DNI" required type="DNI"> <label><br />
+			placeholder="DNI" required type="number"> <label>
+			<br />
 				Nombre</label> <input name="Nombre" id="Nombre" class="form-control"
-			placeholder="Nombre"> <label><br /> Apellido</label> <input
+			placeholder="Nombre"  required type="text"> <label><br /> 
+			Apellido</label> <input
 				name="Apellido" id="Apellido" class="form-control"
-				placeholder="Apellido"> <label><br /> Usuario</label> <input
+				placeholder="Apellido"  required type="text"> <label><br />
+				 Usuario</label> <input
 					name="Usuario" id="Usuario" class="form-control"
-					placeholder="Usuario"> <label><br /> Password</label> <input
+					placeholder="Usuario"  required type="text"> <label><br />
+					 Password</label> <input
 						name="Password" id="Password" class="form-control"
-						placeholder="Password"> <label><br /> Email</label> <input
-							name="Email" id="Email" class="form-control" placeholder="Email">
-								<br /> Estado</label> <input name="habilitado" id="habilitado"
-								class="form-control" placeholder="habilitado"> <label><br />
-										Categoria</label> <input name="Categoria" id="Categoria"
-									class="form-control" placeholder="Categoria "> <label><br />
-											<button class="btn btn-lg btn-primary btn-block"
-												type="submit">Alta Usuario</button>
+						placeholder="Password"  required type="password"> <label><br />
+						 Email</label> <input
+							name="Email" id="Email" class="form-control" placeholder="Email"  required type="email">
+								<br />
+Estado</label>
+<select required name="habilitado">
+ <option value="habilitado">Habilitado</option>
+ <option value="inhabilitado">Inhabilitado</option>
+	</select>		
+									Estado</label>
+<select required name="Categoria">
+ <option value="user">Usuario</option>
+ <option value="admin">Administrador</option>
+	</select>	
+	<button class="btn btn-lg btn-primary btn-block"
+												type="submit">Agregar Usuario</button>
 	</form>
 	<br />
 	<form action="ServletsAdmin" method="post">
-		<input type="submit" value="Salir" />
+		<input type="submit" value="Volver al menú" />
 	</form>
 </html>
 </body>

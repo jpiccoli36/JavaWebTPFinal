@@ -7,20 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Controlador.ControladorUsuario;
-import Entidades.Persona;
+import Controlador.ControladorElementos;
 
 /**
- * Servlet implementation class ServletsHabilitarUsuario
+ * Servlet implementation class ServletsModificarElemento
  */
-@WebServlet("/ServletsHabilitarUsuario")
-public class ServletsHabilitarUsuario extends HttpServlet {
+@WebServlet("/ServletsModificarElemento")
+public class ServletsModificarElemento extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletsHabilitarUsuario() {
+    public ServletsModificarElemento() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,14 +36,16 @@ public class ServletsHabilitarUsuario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		int id=Integer.parseInt(request.getParameter("idusuario"));		
-		Persona p = new Persona();
-		p.setId(id);		
-		ControladorUsuario cu = new ControladorUsuario();
-		cu.HabilitarUsuario(p);
+		// TODO Auto-generated method stub
+		ControladorElementos ce=new ControladorElementos();
+		int id=Integer.parseInt(request.getParameter("id"));
+		String tipo=request.getParameter("tipoelemento");
+		String nombre=request.getParameter("nombreelemento");
+		// como hago para pasar del servletElementoModificar a este servlets el dato de ID
+		// pasando por modificarejemento.jsp
 		
-	
+		ce.ModificarElemento(id, nombre, tipo);
+		
 	}
 
 }

@@ -12,7 +12,8 @@
 <body>
 <form class="form-signin" name="signin" action="ServletsRecuperarElemento"
 			method="post">
-			<h2 class="form-signin-heading">Tipo Elementos</h2>
+			<h2 class="form-signin-heading">Eliminar Elemento</h2>
+			<label>Seleccionar Tipo Elemento:</label>
 			<% ArrayList<Elemento> ele = (ArrayList<Elemento>) request.getAttribute("listaele");	%>
 				<select name="idelemento">
 				
@@ -25,9 +26,12 @@
 					%>
 </select>											
 				
-			<button class="btn btn-lg btn-primary btn-block"   type="submit" >Baja Elemento </button>
+			<button class="btn btn-lg btn-primary btn-block"   type="submit" >Aceptar </button>
 			
 		</form>	
+		<form action="ServletsAdmin" method="post">
+		<input type="submit" value="Volver al menú" />
+	</form>
 			
 			
 			

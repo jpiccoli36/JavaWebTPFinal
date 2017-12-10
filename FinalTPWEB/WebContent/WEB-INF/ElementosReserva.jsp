@@ -16,41 +16,38 @@
 		<form class="form-signin" name="signin" action="ServletsAltaReserva"
 			method="post">
 			<h2 class="form-signin-heading">Reserva</h2>
-			<label for="horaini" class="sr-only">Hora Inicio</label> <input
+			<label for="fechaini" class="sr-only">Fecha Inicio</label> <input
+				name="fechaini" id="fechaini" class="form-control"
+				placeholder="dd/mm/yyyy" required="" autofocus="" type="">
+				<label for="horaini" class="sr-only">Hora Inicio</label> <input
 				name="horaini" id="horaini" class="form-control"
-				placeholder="dd/mm/yyyy hh:mm" required="" autofocus="" type="">
-			<Br> <label for="horafin" class="sr-only">Hora Fin</label> <input
+				placeholder="hh:mm" required="" autofocus="" type="">
+			<Br>
+			<label for="fechafin" class="sr-only">Fecha-Hora Fin</label> <input
+				name="fechafin" id="fechafin" class="form-control"
+				placeholder="dd/mm/yyyy" required="" type=""> 
+				<label for="horafin" class="sr-only">Fecha-Hora Fin</label> <input
 				name="horafin" id="horafin" class="form-control"
-				placeholder="dd/mm/yyyy hh:mm" required="" type=""> <Br>
-			<label for="tipoel" class="sr-only">Tipo Elemento</label> <input
-				name="tipoel" id="tipoel" class="form-control"
-				placeholder="Tipo Elemento" required="" type=""> <Br>
+				placeholder="hh:mm" required="" type=""> <Br>
 				
+				<select name="tipoel">
+				
+			<%	ArrayList<Elemento> ele = (ArrayList<Elemento>) request.getAttribute("listaele");
+			for (Elemento p : ele) {%>
+ <option value="<%=p.getNombre_elemento()%>"> <%=p.getNombre_elemento()%></option>
+
+ 
+ <%
+			}
+					%>
+</select>	
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Buscar
 				Elementos</button>
 
-		</form>
-		<table>
-			Tipo Elementos
-			<Br>
-
-
-			<%
-				ArrayList<Elemento> ele = (ArrayList<Elemento>) request.getAttribute("listaele");
-				for (Elemento p : ele) {
-			%>
-			<tr>
-				<td><%=p.getNombre_elemento()%> &nbsp;</td> >
-
-			</tr>
-			<%
-				}
-			%>
-		</table>
-
+		</form>			
 
 	</div>
-	<!-- /container -->
+
 
 </body>
 </html>
