@@ -32,7 +32,7 @@ public class ServletsLogin extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
+		
 			
 			String user=request.getParameter("user");
 			String pass=request.getParameter("pass");
@@ -63,9 +63,7 @@ public class ServletsLogin extends HttpServlet {
 		//	response.getWriter().append(user).append(" ").append(pass);
 			
 			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 		
 	}
 

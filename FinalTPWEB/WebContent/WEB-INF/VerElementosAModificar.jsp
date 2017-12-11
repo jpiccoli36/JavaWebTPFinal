@@ -10,11 +10,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form class="form-signin" name="signin" action="ServletsElementoModificar"
+<form class="form-signin" name="signin" action="ServletsVerTipoElementos"
 			method="post">
+			
 			<h2 class="form-signin-heading">Modificar Elementos</h2>
 			<% ArrayList<Elemento> ele = (ArrayList<Elemento>) request.getAttribute("listaele");	%>
 			<label>Seleccionar Elemento:</label>
+			<input type="hidden"
+				name="opcion" value="6" >
 				<select name="idelemento">
 				
 			<%	for (Elemento p : ele) {%>

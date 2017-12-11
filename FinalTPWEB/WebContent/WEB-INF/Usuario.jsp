@@ -11,10 +11,12 @@
 	<h1>
 		Bienvenido
 		<%=((Persona)session.getAttribute("user")).getNombre() %></h1>
-	<form action="ServletsVerReservas" method="post">
+	<form action="ServletsVerReservas" method="post">	
 		<input type="submit" value="Ver Reservas" />
 	</form>
-<form action="ServletVerElementos" method="post">
+<form action="ServletsVerTipoElementos" method="post">
+<input type="hidden"
+				name="opcion" value="7" >
 		<input type="submit" value="Alta Reserva" />
 	</form>
 		<form action="ServletsBuscarReservaUsuario" method="post">

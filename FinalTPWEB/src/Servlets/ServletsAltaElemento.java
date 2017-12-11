@@ -12,38 +12,34 @@ import Controlador.ControladorUsuario;
 import Entidades.Elemento;
 import Entidades.Persona;
 
-
 @WebServlet({ "/ServletsAltaElemento", "/Servletaltaelemento" })
 public class ServletsAltaElemento extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public ServletsAltaElemento() {
-        super();
-      
-    }
+	public ServletsAltaElemento() {
+		super();
 
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String Nombre=request.getParameter("Nombre");
-		int Cantidad=Integer.parseInt(request.getParameter("Cantidad"));
-		
-		
-		Elemento el=new Elemento();
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String Nombre = request.getParameter("Nombre");
+		int Cantidad = Integer.parseInt(request.getParameter("Cantidad"));
+
+		Elemento el = new Elemento();
 		el.setNombre_elemento(Nombre);
-		el.setCantidad_elemento(Cantidad);	
-		ControladorElementos ctrl= new ControladorElementos();		
-		ctrl.Alta(el);	
-	
+		el.setCantidad_elemento(Cantidad);
+		ControladorElementos ctrl = new ControladorElementos();
+		ctrl.Alta(el);
 		request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);
-	
-	
+
 	}
 
 }

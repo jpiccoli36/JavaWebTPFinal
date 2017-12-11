@@ -12,7 +12,7 @@ private Connection conn;
 private String host="localhost";
 private String port="3306";
 private String user="root";
-private String password="pipo";
+private String password="root";
 private String db="javatp";
 
 private FactoryConexion() {

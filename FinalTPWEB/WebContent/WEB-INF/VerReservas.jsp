@@ -15,7 +15,7 @@
 </head>
 <body>
 <form action="ServletsUsuario" method="post">
-		<input type="submit" value="Salir" />
+		<input type="submit" value="Volver" />
 	</form>
 	<form action="ServletsVerReservas">
 

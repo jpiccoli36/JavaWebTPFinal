@@ -28,11 +28,61 @@ public class ServletsVerTipoElementos extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int opcion=Integer.parseInt(request.getParameter("opcion"));
 		ControladorElementos ce = new ControladorElementos();
 		ArrayList<Elemento> ae = new ArrayList<Elemento>();
+		switch (opcion) {
+		case 1:
+	
 		ae=ce.ConsultaTodosTiposElementos();
 		request.setAttribute("listaelementos", ae);
 		request.getRequestDispatcher("WEB-INF/BajaTipoElementos.jsp").forward(request, response);
+			
+			break;
+		case 2:			
+			ae=ce.ConsultaTodosTiposElementos();
+			request.setAttribute("listaelementos", ae);
+			request.getRequestDispatcher("WEB-INF/SeleccionarElementoReserva.jsp").forward(request, response);
+			
+			break;
+		case 3:
+			
+			ae=ce.ConsultaTodosTiposElementos();		
+			request.setAttribute("listaele",ae);
+			request.getRequestDispatcher("WEB-INF/VerElementosModificacion.jsp").forward(request,response);
+			
+			break;
+		case 4:		
+			ae=ce.ConsultaTodosTiposElementos();
+			request.setAttribute("listaele",ae);
+			request.getRequestDispatcher("WEB-INF/VerTiposElementosBajaElementos.jsp").forward(request, response);
+			break;
+		case 5:
+			
+		ae=ce.ConsultaTodosTiposElementos();
+		request.setAttribute("listaele", ae);
+		request.getRequestDispatcher("WEB-INF/VerTiposElementosModificarElementos.jsp").forward(request, response);			
+			break;
+		case 6:					
+			Elemento e=new Elemento();
+			int id=Integer.parseInt(request.getParameter("idelemento"));
+			e=ce.ConsultarElemento(id);
+			request.setAttribute("nombre", e.getNombreElementoReserva());
+			request.setAttribute("tipoelemento", e.getTipoElementoReserva());
+			request.setAttribute("id", e.getIdElementosReserva());		
+			ae=ce.ConsultaTodosTiposElementos();
+			request.setAttribute("listatipo", ae);
+			request.getRequestDispatcher("WEB-INF/ModificarElemento.jsp").forward(request, response);
+		break;
+		case 7:				
+			ae=ce.ConsultaTodosTiposElementos();		
+			request.setAttribute("listaele",ae);
+			request.getRequestDispatcher("WEB-INF/ElementosReserva.jsp").forward(request,response);
+			break;
+						
+		default:
+			break;
+		}
 		
 
 	}

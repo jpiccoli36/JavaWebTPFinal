@@ -30,18 +30,29 @@
 		<input type="submit" value="Agregar Tipo Elemento" />
 	</form>	
 	<form action="ServletsVerTipoElementos" method="post">
+	<input type="hidden"
+				name="opcion" value="1" >
 		<input type="submit" value="Eliminar Tipo Elemento" />
 	</form>	
-		<form action="ServletsVerTipoElementosModificacion" method="post">
+		<form action="ServletsVerTipoElementos" method="post">
+		<input type="hidden"
+				name="opcion" value="3" >
 		<input type="submit" value="Modificar Tipo Elemento" />
 	</form>	
-	<form action="ServletsVerElementoReserva" method="post">
+	<form action="ServletsVerTipoElementos" method="post">
+	<input type="hidden"
+				name="opcion" value="2" >
 		<input type="submit" value="Agregar Elemento" />
 	</form>	
-	<form action="ServletsVerTiposElementosBajaElementos" method="post">
+	<form action="ServletsVerTipoElementos" method="post">
+	<input type="hidden"
+				name="opcion" value="4" >
+	
 		<input type="submit" value="Eliminar Elemento" />
 	</form>
-	<form action="ServletsRecuperarTipoElementoModificacion" method="post">
+	<form action="ServletsVerTipoElementos" method="post">
+	<input type="hidden"
+				name="opcion" value="5" >
 		<input type="submit" value="Modificar Elemento" />
 	</form>
 	<form action="login.html" method="post">
