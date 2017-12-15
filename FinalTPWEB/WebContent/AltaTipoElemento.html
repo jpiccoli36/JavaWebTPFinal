@@ -10,9 +10,16 @@
 		<label>Nombre </label><input name="Nombre" id="Nombre" class="form-control"
 			placeholder="Nombre" required type="text"> <label><br /> Cantidad</label> <input
 			name="Cantidad" id="Cantidad" class="form-control"
-			placeholder="Cantidad" required type="number"> <label>
+			placeholder="Cantidad" required type="number"> 
+			<br></br><label>Autorizado a ver tipo Elemento:
+			</label>
+					<select required name="autorizado">
+ <option value="user">usuario</option>
+ <option value="encargado">encargado</option>
+	</select>
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Agregar Tipo
 			Elemento</button>
+		
 	</form>
 	<br />
 	<form action="ServletsAdmin" method="post">

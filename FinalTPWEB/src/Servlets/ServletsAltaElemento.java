@@ -32,8 +32,10 @@ public class ServletsAltaElemento extends HttpServlet {
 
 		String Nombre = request.getParameter("Nombre");
 		int Cantidad = Integer.parseInt(request.getParameter("Cantidad"));
+		String autorizado=request.getParameter("autorizado");
 
 		Elemento el = new Elemento();
+		el.setAutorizado(autorizado);
 		el.setNombre_elemento(Nombre);
 		el.setCantidad_elemento(Cantidad);
 		ControladorElementos ctrl = new ControladorElementos();

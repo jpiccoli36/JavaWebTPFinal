@@ -63,4 +63,7 @@ return de.ConsultarTipoElemento(idelemento);
 public Elemento ConsultarElemento(int id){
 	return de.ConsultarElemento(id);
 }
+public ArrayList<Elemento> ConsultaTodosTiposElementosEncargado() {
+	return de.ConsultaTodosTiposElementosEncargado();	
+}
 }

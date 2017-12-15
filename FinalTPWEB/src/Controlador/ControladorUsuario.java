@@ -1,6 +1,7 @@
 package Controlador;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -27,7 +28,7 @@ public class ControladorUsuario {
 
 	
 
-	public void AltaPersona(Persona p) {
+	public void AltaPersona(Persona p) throws SQLException, Exception {
 		
 		du.AltaUsuario(p);
 
@@ -55,10 +56,17 @@ public class ControladorUsuario {
 	}
 
 	
-	public Persona login(Persona p) {
-		Login log = new Login();
-		return log.login(p);
+	public Persona login(Persona p) throws SQLException  {
+		
+			Login log = new Login();	
+			return log.login(p);
+			
+	
+		
+			
+		
+		}
 
 	}
 
-}
+

@@ -157,7 +157,8 @@ public class DatosReserva {
 	public void ReservarElemento(String usuario, Date fechaHoraIni, Date fechaHoraFin, String elemento, String tipo,
 			String detalle) {
 		java.sql.PreparedStatement stmt = null;
-
+		int w=fechaHoraIni.compareTo(fechaHoraFin);		
+		if(-1==w){
 		try {
 			stmt = FactoryConexion.getInstancia().getConn()
 					.prepareStatement("insert into reservas (usuario, fhinicio, fhfin, elemento, tipoelemento,detalle) "
@@ -171,11 +172,19 @@ public class DatosReserva {
 			stmt.executeUpdate();
 
 			stmt.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (SQLException r) {
+			 r=new SQLException("hola");
+			
 		}
-
+		}else{
+		try{
+			int k=1/0;
+		}
+		catch(Exception e){
+			
+		}
+						
+		}
 	}
 
 }

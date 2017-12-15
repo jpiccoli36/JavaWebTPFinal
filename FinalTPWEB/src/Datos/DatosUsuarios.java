@@ -8,12 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import javax.xml.crypto.dsig.spec.ExcC14NParameterSpec;
 
 import Entidades.Elemento;
 import Entidades.Persona;
 
 public class DatosUsuarios {
-	public void AltaUsuario(Persona p) {
+	public void AltaUsuario(Persona p) throws SQLException,Exception {
 		int b = 0;
 		java.sql.PreparedStatement stmt = null;
 
@@ -41,14 +42,17 @@ public class DatosUsuarios {
 			rs = stmt.getGeneratedKeys();
 			if (rs != null && rs.next()) {
 				p.setIdUsuario(rs.getInt(1));
-			}
-			JOptionPane.showMessageDialog(null, "Usuario Agregado");
+			}			
 			rs.close();
 			stmt.close();
 
 		} catch (SQLException s) {
-			s.printStackTrace();
-
+			
+			throw s;
+		}
+		catch(Exception s){
+			
+			throw s;
 		}
 		
 	}
@@ -136,7 +140,7 @@ public class DatosUsuarios {
 			}
 			rs.close();
 			stmt.close();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 
 		}
 		return p;

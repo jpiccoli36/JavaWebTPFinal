@@ -36,6 +36,15 @@ public class Elemento implements Serializable {
 
 	String NombreElementoReserva;
 	String tipoElementoReserva;
+	String autorizado;
+
+	public String getAutorizado() {
+		return autorizado;
+	}
+
+	public void setAutorizado(String autorizado) {
+		this.autorizado = autorizado;
+	}
 
 	public Elemento(String nombre, int id, int cantidad) {
 		this.setNombre_elemento(nombre);

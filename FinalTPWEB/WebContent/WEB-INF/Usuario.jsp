@@ -8,9 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<h1>
-		Bienvenido
+	Bienvenido
 		<%=((Persona)session.getAttribute("user")).getNombre() %></h1>
+		
 	<form action="ServletsVerReservas" method="post">	
 		<input type="submit" value="Ver Reservas" />
 	</form>
@@ -27,6 +29,7 @@
 <form action="login.html" method="post">
 		<input type="submit" value="Salir" />
 	</form>
+
 
 </body>
 </html>

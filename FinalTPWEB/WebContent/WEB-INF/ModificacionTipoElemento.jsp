@@ -29,8 +29,14 @@
 				
 			<input type="hidden"
 				name="idelemento" value="<%=request.getAttribute("id") %>" >
+				<br><label>Autorizado a ver tipo Elemento:
+			</label>
+					<select required name="autorizado">
+ <option value="user">usuario</option>
+ <option value="encargado">encargado</option>
+	</select>
 			
-				
+			<br>		
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Aceptar</button>
 	
 		

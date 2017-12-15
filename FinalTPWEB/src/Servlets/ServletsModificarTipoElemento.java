@@ -33,9 +33,11 @@ public class ServletsModificarTipoElemento extends HttpServlet {
 		String nombre = request.getParameter("nombreelemento");
 		int cantidad= Integer.parseInt(request.getParameter("cantidadelemento"));
 		int id= Integer.parseInt(request.getParameter("idelemento"));
+		String autorizado=request.getParameter("autorizado");
 		e.setId_elemento(id);	
 		e.setNombre_elemento(nombre);
 		e.setCantidad_elemento(cantidad);
+		e.setAutorizado(autorizado);
 		ce.ModificarTipoElementos(e);	
 		request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);
 		

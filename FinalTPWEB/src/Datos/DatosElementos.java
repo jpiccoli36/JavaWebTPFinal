@@ -20,7 +20,7 @@ public class DatosElementos {
 		try {
 			Statement stmt = FactoryConexion.getInstancia().getConn().createStatement();
 
-			rs = stmt.executeQuery("select * from tiposelementos");
+			rs = stmt.executeQuery("select * from tiposelementos where autorizado='user'");
 			if (rs != null) {
 				while (rs.next()) {
 					Elemento e = new Elemento();
@@ -147,10 +147,11 @@ public class DatosElementos {
 
 		try {
 			stmt = FactoryConexion.getInstancia().getConn().prepareStatement(
-					"insert into tiposelementos(NombreElemento,CantidadElementos) values (?,?)",
+					"insert into tiposelementos(NombreElemento,CantidadElementos,Autorizado) values (?,?,?)",
 					PreparedStatement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, e.getNombre_elemento());
 			stmt.setInt(2, e.getCantidad_elemento());
+			stmt.setString(3, e.getAutorizado());
 			stmt.executeUpdate();
 
 			rs = stmt.getGeneratedKeys();
@@ -204,10 +205,11 @@ public class DatosElementos {
 
 		try {
 			stmt = FactoryConexion.getInstancia().getConn().prepareStatement(
-					"UPDATE tiposelementos SET NombreElemento=?,CantidadElementos=? WHERE idElementos=?");
-			stmt.setInt(3, ele.getId_elemento());
+					"UPDATE tiposelementos SET NombreElemento=?,CantidadElementos=?,Autorizado=? WHERE idElementos=?");
+			stmt.setInt(4, ele.getId_elemento());
 			stmt.setString(1, ele.getNombre_elemento());
 			stmt.setInt(2, ele.getCantidad_elemento());
+			stmt.setString(3, ele.getAutorizado());
 			stmt.executeUpdate();
 			
 			stmt.close();
@@ -323,4 +325,32 @@ public class DatosElementos {
 		
 		return e;
 }
+
+	public ArrayList<Elemento> ConsultaTodosTiposElementosEncargado() {
+		ResultSet rs = null;
+		ArrayList<Elemento> el = new ArrayList<Elemento>();
+
+		try {
+			Statement stmt = FactoryConexion.getInstancia().getConn().createStatement();
+
+			rs = stmt.executeQuery("select * from tiposelementos where Autorizado='encargado'");
+			if (rs != null) {
+				while (rs.next()) {
+					Elemento e = new Elemento();
+					e.setId_elemento(rs.getInt("idElementos"));
+					e.setCantidad_elemento(rs.getInt("CantidadElementos"));
+					e.setNombre_elemento(rs.getString("NombreElemento"));
+					
+					el.add(e);
+
+				}
+				
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+	}
+		return el;
+	}
 	}

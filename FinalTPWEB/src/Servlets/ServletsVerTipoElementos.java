@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Controlador.ControladorElementos;
+import Controlador.ControladorUsuario;
 import Entidades.Elemento;
+import Entidades.Persona;
 
 @WebServlet("/ServletsVerTipoElementos")
 public class ServletsVerTipoElementos extends HttpServlet {
@@ -74,11 +76,22 @@ public class ServletsVerTipoElementos extends HttpServlet {
 			request.setAttribute("listatipo", ae);
 			request.getRequestDispatcher("WEB-INF/ModificarElemento.jsp").forward(request, response);
 		break;
-		case 7:				
+		case 7:			
+			
+			if(request.getSession().getAttribute("categoria").equals("user")){
 			ae=ce.ConsultaTodosTiposElementos();		
 			request.setAttribute("listaele",ae);
 			request.getRequestDispatcher("WEB-INF/ElementosReserva.jsp").forward(request,response);
-			break;
+			}
+			else{			
+				ArrayList<Elemento> aee=new ArrayList<Elemento>();
+				ae=ce.ConsultaTodosTiposElementos();		
+				aee=ce.ConsultaTodosTiposElementosEncargado();
+				request.setAttribute("listaele",ae);
+				request.setAttribute("listaeleencargado", aee);
+				request.getRequestDispatcher("WEB-INF/ElementosReserva.jsp").forward(request,response);				
+				
+			}
 						
 		default:
 			break;
