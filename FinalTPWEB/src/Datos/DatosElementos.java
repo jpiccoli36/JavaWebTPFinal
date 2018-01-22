@@ -1,15 +1,11 @@
 package Datos;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.PreparedStatement;import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
-
 import Entidades.Elemento;
-import Entidades.Reservas;
+
 
 public class DatosElementos {
 
@@ -21,6 +17,35 @@ public class DatosElementos {
 			Statement stmt = FactoryConexion.getInstancia().getConn().createStatement();
 
 			rs = stmt.executeQuery("select * from tiposelementos where autorizado='user'");
+			if (rs != null) {
+				while (rs.next()) {
+					Elemento e = new Elemento();
+					e.setId_elemento(rs.getInt("idElementos"));
+					e.setCantidad_elemento(rs.getInt("CantidadElementos"));
+					e.setNombre_elemento(rs.getString("NombreElemento"));
+					
+					el.add(e);
+
+				}
+				
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return el;
+	}
+	public ArrayList<Elemento> ConsultaTodosTiposElementosAdmin() {
+		ResultSet rs = null;
+		ArrayList<Elemento> el = new ArrayList<Elemento>();
+
+		try {
+			Statement stmt = FactoryConexion.getInstancia().getConn().createStatement();
+
+			rs = stmt.executeQuery("select * from tiposelementos ");
 			if (rs != null) {
 				while (rs.next()) {
 					Elemento e = new Elemento();
@@ -147,11 +172,13 @@ public class DatosElementos {
 
 		try {
 			stmt = FactoryConexion.getInstancia().getConn().prepareStatement(
-					"insert into tiposelementos(NombreElemento,CantidadElementos,Autorizado) values (?,?,?)",
+					"insert into tiposelementos(NombreElemento,CantidadElementos,Autorizado,anterioridadminima,diasmaxreserva) values (?,?,?,?,?)",
 					PreparedStatement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, e.getNombre_elemento());
 			stmt.setInt(2, e.getCantidad_elemento());
 			stmt.setString(3, e.getAutorizado());
+			stmt.setInt(4, e.getAnticipacionDiasReserva());
+			stmt.setInt(5,e.getCantidadDiasMaximosReserva());
 			stmt.executeUpdate();
 
 			rs = stmt.getGeneratedKeys();
@@ -352,5 +379,52 @@ public class DatosElementos {
 			e.printStackTrace();
 	}
 		return el;
+	}
+	public int ConsultarTiempoAnterioridadReserva(String tipo) throws Exception{
+		java.sql.PreparedStatement stmt = null;
+		int cantmin = 0;
+		ResultSet rs = null;		
+		try {
+			stmt = FactoryConexion.getInstancia().getConn()
+					.prepareStatement("select * from tiposelementos where NombreElemento=? ");
+			stmt.setString(1, tipo);
+			rs=stmt.executeQuery();
+			rs.next();
+		cantmin= rs.getInt("anterioridadminima");
+			
+		
+				
+				} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}	
+		return cantmin;
+
+		
+		
+		
+	}
+
+	public int ConsultarTiempoMaximoReserva(String tipoEl) {
+		java.sql.PreparedStatement stmt = null;
+		int cantmax = 0;
+		ResultSet rs = null;		
+		try {
+			stmt = FactoryConexion.getInstancia().getConn()
+					.prepareStatement("select * from tiposelementos where NombreElemento=? ");
+			stmt.setString(1, tipoEl);
+			rs=stmt.executeQuery();
+			rs.next();
+		cantmax= rs.getInt("diasmaxreserva");
+			
+		
+				
+				} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}	
+		return cantmax;
+		
+		
 	}
 	}

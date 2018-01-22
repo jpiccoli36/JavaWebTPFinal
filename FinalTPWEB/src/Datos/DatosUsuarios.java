@@ -22,7 +22,7 @@ public class DatosUsuarios {
 
 		try {
 			stmt = FactoryConexion.getInstancia().getConn().prepareStatement(
-					"insert  into usuarios(NombreUsuario,ApellidoUsuario,DNI,Usuario,Contraseña,Categoria,habilitado) values  (?,?,?,?,?,?,? )  ",
+					"insert  into usuarios(NombreUsuario,ApellidoUsuario,DNI,Usuario,Contraseña,Categoria,habilitado,email) values  (?,?,?,?,?,?,?,?)  ",
 					PreparedStatement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, p.getNombre());
 			stmt.setString(2, p.getApellido());
@@ -30,6 +30,7 @@ public class DatosUsuarios {
 			stmt.setString(4, p.getUsuario());
 			stmt.setString(5, p.getContraseña());
 			stmt.setString(6, p.getCategoria());
+			stmt.setString(8, p.getEmail());
 
 			if (p.getEstados().equals("habilitado")) {
 				stmt.setString(7, "habilitado");
@@ -70,8 +71,7 @@ public class DatosUsuarios {
 		} catch (SQLException s) {
 
 			s.printStackTrace();
-		}
-		JOptionPane.showMessageDialog(null, "Usuario Eliminado");
+		}	
 		try {
 			stmt.close();
 		} catch (SQLException e1) {
@@ -100,6 +100,7 @@ public class DatosUsuarios {
 					p.setEstados(rs.getString("habilitado"));
 					p.setIdUsuario(rs.getInt("IdUsuario"));
 					p.setUsuario(rs.getString("Usuario"));
+					p.setEmail(rs.getString("email"));
 
 					pe.add(p);
 

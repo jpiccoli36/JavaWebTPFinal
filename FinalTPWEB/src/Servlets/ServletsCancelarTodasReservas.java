@@ -38,7 +38,8 @@ public class ServletsCancelarTodasReservas extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ControladorReservas cr = new ControladorReservas();
 		int id= Integer.parseInt(request.getParameter("idreserva"));
-		cr.CancelarReserva(id);		
+		cr.CancelarReserva(id);
+		request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);
 	}
 
 }

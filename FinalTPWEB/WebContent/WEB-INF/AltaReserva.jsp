@@ -38,12 +38,15 @@
 				<input type="hidden"
 				name="horafin" value=<%=request.getParameter("horafin") %> >
 				<input type="hidden"
-				name="tipoel" value=<%=request.getParameter("tipoel") %> >	
-				
+				name="tipoel" value=<%=request.getParameter("tipoel") %> >					
 				
 
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Reservar</button>
 
+	</form>
+	<form action="ServletsVerReservas" method="post">
+<input type="hidden" name="opcion" value="2">
+		<input type="submit" value="Volver al menu" />
 	</form>
 
 

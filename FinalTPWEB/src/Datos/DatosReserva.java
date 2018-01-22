@@ -3,20 +3,20 @@ package Datos;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Time;
+
 import java.util.ArrayList;
 import java.util.Date;
 
-import Entidades.Elemento;
+
 import Entidades.Reservas;
 
 public class DatosReserva {
 
-	public ArrayList<Reservas> ConsultaElementosDisponibles(Date fechaHoraIni, Date fechaHoraFin, Object tipoEl) {
+	public ArrayList<Reservas> ConsultaElementosDisponibles(Date fechaHoraIni, Date fechaHoraFin, Object tipoEl){
 		ArrayList<Reservas> re = new ArrayList<Reservas>();
-		ResultSet rs = null;
-		java.sql.PreparedStatement stmt = null;
-
+		ResultSet rs = null;		
+		java.sql.PreparedStatement stmt = null;						
+		
 		try {
 			stmt = FactoryConexion.getInstancia().getConn()
 					.prepareStatement("select * from elementos el "
@@ -55,6 +55,7 @@ public class DatosReserva {
 		return re;
 
 	}
+		
 
 	public void CancelarReserva(int IDReserva) {
 
@@ -66,7 +67,7 @@ public class DatosReserva {
 
 			stmt.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 
@@ -89,13 +90,15 @@ public class DatosReserva {
 					r.setIdreservas(rs.getInt("idreserva"));
 					r.setUsuario(rs.getString("usuario"));
 					r.setTipoElemento(rs.getString("tipoelemento"));
+					r.setFhinicio(rs.getDate("fhinicio"));
+					r.setFhfin(rs.getDate("fhfin"));
 					re.add(r);
 				}
 			}
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -116,6 +119,8 @@ public class DatosReserva {
 					r.setIdreservas(rs.getInt("idreserva"));
 					r.setUsuario(rs.getString("usuario"));
 					r.setTipoElemento(rs.getString("tipoelemento"));
+					r.setFhinicio(rs.getDate("fhinicio"));
+					r.setFhfin(rs.getDate("fhfin"));
 					re.add(r);
 				}
 
@@ -123,7 +128,7 @@ public class DatosReserva {
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
 		}
 		return re;
@@ -147,12 +152,13 @@ public class DatosReserva {
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
 		return r;
 	}
+	
 
 	public void ReservarElemento(String usuario, Date fechaHoraIni, Date fechaHoraFin, String elemento, String tipo,
 			String detalle) {
@@ -173,17 +179,9 @@ public class DatosReserva {
 
 			stmt.close();
 		} catch (SQLException r) {
-			 r=new SQLException("hola");
+			 r=new SQLException("ERROR");
 			
 		}
-		}else{
-		try{
-			int k=1/0;
-		}
-		catch(Exception e){
-			
-		}
-						
 		}
 	}
 

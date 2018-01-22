@@ -8,6 +8,23 @@ public class Elemento implements Serializable {
 	public Elemento() {
 
 	}
+	public int getCantidadDiasMaximosReserva() {
+		return CantidadDiasMaximosReserva;
+	}
+
+	public void setCantidadDiasMaximosReserva(int cantidadDiasMaximosReserva) {
+		CantidadDiasMaximosReserva = cantidadDiasMaximosReserva;
+	}
+
+	public int getAnticipacionDiasReserva() {
+		return AnticipacionDiasReserva;
+	}
+
+	public void setAnticipacionDiasReserva(int anticipacionDiasReserva) {
+		AnticipacionDiasReserva = anticipacionDiasReserva;
+	}
+	int CantidadDiasMaximosReserva;
+	int AnticipacionDiasReserva;
 	
 	int idElementosReserva;
 	public int getIdElementosReserva() {

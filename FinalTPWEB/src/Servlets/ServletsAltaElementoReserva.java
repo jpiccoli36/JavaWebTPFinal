@@ -34,6 +34,7 @@ public class ServletsAltaElementoReserva extends HttpServlet {
 		Elemento w = new Elemento();
 		w.setNombre_elemento(nombre);
 		Object TipoEl=request.getParameter("nombretipoelemento");
+
 		
 		ce.AgregarElemento(w, TipoEl);
 		request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);

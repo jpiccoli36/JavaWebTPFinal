@@ -2,16 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Documento sin t&iacute;tulo</title>
+
 </head>
 
 <body>
+
 	<form name="Alta Elemento" action="ServletsAltaElemento" method="post">
 		<label>Nombre </label><input name="Nombre" id="Nombre" class="form-control"
 			placeholder="Nombre" required type="text"> <label><br /> Cantidad</label> <input
 			name="Cantidad" id="Cantidad" class="form-control"
 			placeholder="Cantidad" required type="number"> 
-			<br></br><label>Autorizado a ver tipo Elemento:
+			<br></br>
+			<label>Días Anticipacion Reserva </label><input name="anticipacion" id="anticipacion" class="form-control"
+			placeholder="" required type="number"> <label><br />
+			<label>Dìas Maximos Reserva </label><input name="maximo" id="maximo" class="form-control"
+			placeholder="" required type="number"> <label><br />
+			<label>Autorizado a ver tipo Elemento:
 			</label>
 					<select required name="autorizado">
  <option value="user">usuario</option>

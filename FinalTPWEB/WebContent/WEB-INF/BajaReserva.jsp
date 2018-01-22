@@ -10,6 +10,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="ServletsVerReservas" method="post">
+<input type="hidden" name="opcion" value="2">
+		<input type="submit" value="Volver al menu" />
+	</form>
 
 
 		

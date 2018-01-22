@@ -14,30 +14,40 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="ServletsUsuario" method="post">
-		<input type="submit" value="Volver" />
+<form action="ServletsVerReservas" method="post">
+<input type="hidden" name="opcion" value="2">
+		<input type="submit" value="Volver al menu" />
 	</form>
 	<form action="ServletsVerReservas">
 
-		<table>
-			<% 
-
-ArrayList<Reservas> res= (ArrayList<Reservas>) request.getAttribute("listar");
-%>
-Elemento &nbsp TipoElemento
-			<% for(Reservas re: res){ %>
-			<tr>
-				<td><%=re.getElemento()%></td>
+<table>
+	
+	<thead>
+       <tr>
+           <th>ELEMENTO</th>
+           <th>TIPO ELEMENTO</th>
+           <th>FECHA HS INICIO</th>
+           <th>FECHA HS FIN</th>
+       </tr>
+   </thead>
+   <tbody>
+		<%
+			ArrayList<Reservas>res= (ArrayList<Reservas>)request.getAttribute("listar");
+			for(Reservas re : res){
+		%>
+		<tr>
+			<td><%=re.getElemento()%></td>
 				<td><%=re.getTipoElemento() %></td>
+				<td><%=re.getFhinicio() %></td>
+				<td><%=re.getFhfin() %></td>
+
+		</tr>
+		<%
+			}
+		%>
+		</tbody>
+	</table>
 				
-			</tr>
-			<%
-
-
-}
-%>
-
-			
 						</form>
 </body>
 </html>

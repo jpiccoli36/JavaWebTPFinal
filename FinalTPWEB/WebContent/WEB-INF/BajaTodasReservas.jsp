@@ -6,9 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+
 </head>
 <body>
+
 	<form action="ServletsCancelarTodasReservas" method="post">
 		<label for="idreserva" class="sr-only">ID Reserva</label> <input
 				name="idreserva" id="idreserva" class="form-control" placeholder="ID Reserva"
@@ -26,6 +27,8 @@
            <th>USUARIO</th>
            <th>ELEMENTO</th>
            <th>TIPO ELEMENTO</th>
+           <th>FECHA HS INICIO</th>
+           <th>FECHA HS FIN</th>
        </tr>
    </thead>
    <tbody>
@@ -38,6 +41,8 @@
 			<td><%=r.getUsuario() %></td>
 			<td><%=r.getElemento() %></td>
 			<td><%=r.getTipoElemento() %></td>
+			<td><%=r.getFhinicio() %></td>
+			<td><%=r.getFhfin() %></td>
 		
 
 		</tr>

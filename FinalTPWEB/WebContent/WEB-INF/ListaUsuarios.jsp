@@ -7,24 +7,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
 </head>
 <body>
-
-	<h1>
-		Bienvenido
-		<%=((Persona)session.getAttribute("user")).getNombre() %></h1>
 			<form action="ServletsAdmin" method="post">
 		<input type="submit" value="Volver al menú" />
 	</form>
+	
 	<table>
 	
 	<thead>
        <tr>
            <th>ID</th>
-           <th>DNI</th>
-           <th>APELLIDO</th>
+           <th>USUARIO</th>
            <th>NOMBRE</th>
+           <th>APELIIDO</th>
+           <th>DNI</th>
+           <th>EMAIL</th>
+           <th>ESTADO</th>
+           <th>
        </tr>
    </thead>
    <tbody>
@@ -34,9 +35,13 @@
 		%>
 		<tr>
 			<td><%=p.getId() %> &nbsp;</td>
-			<td><%=p.getDNI() %></td>
+			<td><%=p.getUsuario() %></td>
+			<td><%=p.getNombre() %></td>		
 			<td><%=p.getApellido() %></td>
-			<td><%=p.getNombre() %></td>
+			<td><%=p.getDNI() %></td>
+			<td><%=p.getEmail() %></td>
+			<td><%=p.getEstados() %></td>
+		
 
 		</tr>
 		<%

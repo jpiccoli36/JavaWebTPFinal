@@ -40,11 +40,9 @@ public class ServletsModificarElemento extends HttpServlet {
 		ControladorElementos ce=new ControladorElementos();
 		int id=Integer.parseInt(request.getParameter("id"));
 		String tipo=request.getParameter("tipoelemento");
-		String nombre=request.getParameter("nombreelemento");
-		// como hago para pasar del servletElementoModificar a este servlets el dato de ID
-		// pasando por modificarejemento.jsp
-		
+		String nombre=request.getParameter("nombreelemento");		
 		ce.ModificarElemento(id, nombre, tipo);
+		request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);
 		
 	}
 

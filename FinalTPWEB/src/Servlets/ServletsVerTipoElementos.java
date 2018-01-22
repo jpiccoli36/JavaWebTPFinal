@@ -36,7 +36,7 @@ public class ServletsVerTipoElementos extends HttpServlet {
 		switch (opcion) {
 		case 1:
 	
-		ae=ce.ConsultaTodosTiposElementos();
+		ae=ce.ConsultaTodosTiposElementosAdmin();
 		request.setAttribute("listaelementos", ae);
 		request.getRequestDispatcher("WEB-INF/BajaTipoElementos.jsp").forward(request, response);
 			
@@ -76,11 +76,11 @@ public class ServletsVerTipoElementos extends HttpServlet {
 			request.setAttribute("listatipo", ae);
 			request.getRequestDispatcher("WEB-INF/ModificarElemento.jsp").forward(request, response);
 		break;
-		case 7:			
+		case 7:		
 			
 			if(request.getSession().getAttribute("categoria").equals("user")){
 			ae=ce.ConsultaTodosTiposElementos();		
-			request.setAttribute("listaele",ae);
+			request.setAttribute("listaele",ae);			
 			request.getRequestDispatcher("WEB-INF/ElementosReserva.jsp").forward(request,response);
 			}
 			else{			

@@ -38,6 +38,9 @@ public class ServletsAltaElemento extends HttpServlet {
 		el.setAutorizado(autorizado);
 		el.setNombre_elemento(Nombre);
 		el.setCantidad_elemento(Cantidad);
+		el.setAnticipacionDiasReserva(Integer.parseInt(request.getParameter("anticipacion")));
+		el.setCantidadDiasMaximosReserva(Integer.parseInt(request.getParameter("maximo")));
+		
 		ControladorElementos ctrl = new ControladorElementos();
 		ctrl.Alta(el);
 		request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);

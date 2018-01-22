@@ -1,6 +1,6 @@
 package Controlador;
 
-import java.sql.ResultSet;
+
 import java.util.ArrayList;
 
 import Datos.DatosElementos;
@@ -65,5 +65,16 @@ public Elemento ConsultarElemento(int id){
 }
 public ArrayList<Elemento> ConsultaTodosTiposElementosEncargado() {
 	return de.ConsultaTodosTiposElementosEncargado();	
+}
+public int ConsultarTiempoAnterioridadReserva(String tipoEl) throws Exception {
+	return de.ConsultarTiempoAnterioridadReserva(tipoEl);
+	
+}
+public int ConsultarTiempoMaximoReserva(String tipoEl) {
+	return de.ConsultarTiempoMaximoReserva(tipoEl);
+
+}
+public ArrayList<Elemento> ConsultaTodosTiposElementosAdmin() {
+	return de.ConsultaTodosTiposElementosAdmin();
 }
 }

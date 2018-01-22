@@ -14,10 +14,12 @@
 %>
 <%Object mensaje=request.getAttribute("error");%>
 <%Object url=request.getAttribute("url");%>
+<%Object opcion= request.getAttribute("opcion"); %>
 
    <strong><%=mensaje%></strong>
    
    <form action="<%=url %>" method="post">
+   <input type="hidden" name="opcion" value="<%=opcion %>"/>
 		<input type="submit" value="Volver" />
 	</form>
    </div>

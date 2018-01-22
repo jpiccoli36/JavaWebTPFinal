@@ -46,7 +46,12 @@ public class ServletsVerReservas extends HttpServlet {
 		ArrayList<Reservas> res = new ArrayList<Reservas>();
 		res=cr.ConsultaTodosReservasUsuario(usuario);		
 		request.setAttribute("listar", res);
+		int opcion=Integer.parseInt(request.getParameter("opcion"));
+		if(opcion==1){
 		request.getRequestDispatcher("WEB-INF/VerReservas.jsp").forward(request, response);
+		}else{
+			request.getRequestDispatcher("WEB-INF/Usuario.jsp").forward(request, response);
+		}
 	}
 
 	
