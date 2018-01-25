@@ -24,23 +24,36 @@
 		<input type="submit" value="Cancelar Reserva" />
 		</form>
 
-
-	<table>
+<table>
+	<thead>
+       <tr>
+           <th>ID-RESERVA</th>           
+           <th>ELEMENTO</th>
+           <th>TIPO ELEMENTO</th>
+           <th>FECHA INICIO</th>
+           <th>FECHA FIN</th>
+       </tr>
+   </thead>
+   <tbody>
 		<%
-			ArrayList<Reservas>listaRes= (ArrayList<Reservas>)request.getAttribute("listaReservas");
+		ArrayList<Reservas>listaRes= (ArrayList<Reservas>)request.getAttribute("listaReservas");
 			for(Reservas r : listaRes){
 		%>
 		<tr>
-			<td><%=r.getIdreservas() %> &nbsp;</td>
+			<td><%=r.getIdreservas() %> &nbsp;</td>			
 			<td><%=r.getElemento() %></td>
 			<td><%=r.getTipoElemento() %></td>
-			<td><%=r.getDetalle() %></td>
+			<td><%=r.getFhinicio() %></td>
+			<td><%=r.getFhfin() %></td>
+		
 
 		</tr>
 		<%
 			}
 		%>
+		</tbody>
 	</table>
+	
 
 </body>
 </html>

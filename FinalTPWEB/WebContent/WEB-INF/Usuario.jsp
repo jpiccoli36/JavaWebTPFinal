@@ -66,7 +66,8 @@ ul, ol {
 	<li>	
 
 	<form action="ServletsVerTipoElementos" method="post">
-							<input type="hidden" name="opcion" value="7"> <input
+							<input type="hidden" name="opcion" value="7">
+							<input
 								type="submit"
 								style="cursor: pointer; background-color: black; color: white; border-style: none; height: 30px; width: 200px; font-size: 12pt"
 								value="Alta Reserva" /></input>
@@ -83,9 +84,9 @@ ul, ol {
 		</li>
 	</div>
 	<div align="right"
-		style="font-size: 27px; padding-top: 150px; padding-right: 150px;">
+		style="font-size: 27px; padding-top: 0px; padding-right: 150px;">
 <form action="login.html" method="post">
-		<input type="submit"  value="Cerrar Sesion" />
+		<input type="submit" style="width: 100px; height: 35px;" value="Cerrar Sesion" />
 	</form>
 	</div>
 

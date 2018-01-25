@@ -134,19 +134,24 @@ public class DatosReserva {
 		return re;
 
 	}
+	
 
 	public Reservas ContarReservas(String tipo, String usuario) {
 		Reservas r = new Reservas();
 		ResultSet rs = null;
 		java.sql.PreparedStatement stmt = null;
+		
+	
 
 		try {
 			stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select count(*) Cantidad_Reservas"
 					+ " from reservas " + "where usuario=? and tipoelemento=? and fhfin>= curdate()");
 			stmt.setString(1, usuario);
 			stmt.setString(2, tipo);
+			
 			rs = stmt.executeQuery();
 			rs.next();
+		
 			r.setCantidadReservas(rs.getInt(1));
 
 			rs.close();

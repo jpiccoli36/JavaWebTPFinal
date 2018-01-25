@@ -55,7 +55,7 @@ public class ServletsLogin extends HttpServlet {
 			{
 			
 			request.getSession().setAttribute("user", per);	
-			request.getSession().setAttribute("admin", per);
+			request.getSession().setAttribute("admin", per);			
 			request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);
 			}
 			else{

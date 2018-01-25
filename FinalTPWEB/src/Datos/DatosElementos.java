@@ -38,6 +38,7 @@ public class DatosElementos {
 		
 		return el;
 	}
+		
 	public ArrayList<Elemento> ConsultaTodosTiposElementosAdmin() {
 		ResultSet rs = null;
 		ArrayList<Elemento> el = new ArrayList<Elemento>();
@@ -232,11 +233,13 @@ public class DatosElementos {
 
 		try {
 			stmt = FactoryConexion.getInstancia().getConn().prepareStatement(
-					"UPDATE tiposelementos SET NombreElemento=?,CantidadElementos=?,Autorizado=? WHERE idElementos=?");
-			stmt.setInt(4, ele.getId_elemento());
+					"UPDATE tiposelementos SET NombreElemento=?,CantidadElementos=?,Autorizado=?,anterioridadminima=?,diasmaxreserva=? WHERE idElementos=?");
+			stmt.setInt(6, ele.getId_elemento());
 			stmt.setString(1, ele.getNombre_elemento());
 			stmt.setInt(2, ele.getCantidad_elemento());
 			stmt.setString(3, ele.getAutorizado());
+			stmt.setInt(4, ele.getAnticipacionDiasReserva());
+			stmt.setInt(5, ele.getCantidadDiasMaximosReserva());
 			stmt.executeUpdate();
 			
 			stmt.close();
@@ -279,6 +282,8 @@ public class DatosElementos {
 			e.setId_elemento(rs.getInt("idElementos"));
 			e.setNombre_elemento(rs.getString("NombreElemento"));
 			e.setCantidad_elemento(rs.getInt("CantidadElementos"));
+			e.setAnticipacionDiasReserva(rs.getInt("anterioridadminima"));
+			e.setCantidadDiasMaximosReserva(rs.getInt("diasmaxreserva"));
 			 
 			
 			stmt.close();
@@ -404,6 +409,29 @@ public class DatosElementos {
 		
 		
 	}
+	public int CantidadElementoTipoElemento(String tipoel){
+		java.sql.PreparedStatement stmt = null;
+		int cantidad = 0;
+		ResultSet rs = null;		
+		try {
+			stmt = FactoryConexion.getInstancia().getConn()
+					.prepareStatement("select * from tiposelementos where NombreElemento=? ");
+			stmt.setString(1, tipoel);
+			rs=stmt.executeQuery();
+			rs.next();
+		cantidad= rs.getInt("CantidadElementos");
+			
+		
+				
+				} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}	
+		return cantidad;		
+		
+	}
+		
+	
 
 	public int ConsultarTiempoMaximoReserva(String tipoEl) {
 		java.sql.PreparedStatement stmt = null;

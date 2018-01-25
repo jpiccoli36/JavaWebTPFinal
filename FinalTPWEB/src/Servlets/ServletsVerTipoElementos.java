@@ -79,14 +79,14 @@ public class ServletsVerTipoElementos extends HttpServlet {
 		case 7:		
 			
 			if(request.getSession().getAttribute("categoria").equals("user")){
-			ae=ce.ConsultaTodosTiposElementos();		
+			ae=ce.ConsultaTodosTiposElementos();			
 			request.setAttribute("listaele",ae);			
 			request.getRequestDispatcher("WEB-INF/ElementosReserva.jsp").forward(request,response);
 			}
 			else{			
 				ArrayList<Elemento> aee=new ArrayList<Elemento>();
 				ae=ce.ConsultaTodosTiposElementos();		
-				aee=ce.ConsultaTodosTiposElementosEncargado();
+				aee=ce.ConsultaTodosTiposElementosEncargado();				
 				request.setAttribute("listaele",ae);
 				request.setAttribute("listaeleencargado", aee);
 				request.getRequestDispatcher("WEB-INF/ElementosReserva.jsp").forward(request,response);				

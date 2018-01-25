@@ -31,7 +31,7 @@ CREATE TABLE `elementos` (
   KEY `Telementos_idx` (`NombreElementoReserva`),
   KEY `TiposEl_idx` (`TipoElemento`,`IDElementosReserva`),
   CONSTRAINT `TiposEl` FOREIGN KEY (`TipoElemento`) REFERENCES `tiposelementos` (`NombreElemento`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `elementos` (
 
 LOCK TABLES `elementos` WRITE;
 /*!40000 ALTER TABLE `elementos` DISABLE KEYS */;
-INSERT INTO `elementos` VALUES (23,'samsung','notebook'),(25,'bangho','notebook'),(26,'pry1','proyector'),(27,'pry2','proyector'),(28,'hp','notebook'),(41,'pry3','proyector'),(42,'acer','netbook'),(43,'compaq','netbook'),(44,'mic1','microfono'),(45,'mic2','microfono'),(46,'mic3','microfono'),(47,'tab1','tablets'),(48,'tab2','tablets'),(49,'tab3','tablets'),(50,'mic4','microfono'),(51,'mic5','microfono');
+INSERT INTO `elementos` VALUES (26,'pryo1','proyector'),(27,'pry2','proyector'),(41,'pry3','proyector'),(42,'acer','tablet'),(43,'compaq','netbook'),(44,'mic1','microfono'),(45,'mic2','microfono'),(46,'mic3','microfono'),(47,'tablets1','tablet'),(48,'tab2','tablet'),(50,'mic4','microfono'),(51,'mic5','microfono'),(52,'proyector','proyector'),(53,'proyector','proyector'),(54,'netbook','netbook'),(55,NULL,'proyector'),(56,NULL,'proyector'),(57,'microfono 123','microfono'),(58,'smasung ssdf','celulares'),(59,'proyector 145','proyector'),(61,'xiaomi','celulares');
 /*!40000 ALTER TABLE `elementos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,7 @@ CREATE TABLE `reservas` (
   KEY `tipoelem_idx` (`tipoelemento`),
   CONSTRAINT `elem` FOREIGN KEY (`elemento`) REFERENCES `elementos` (`NombreElementoReserva`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `tipoelem` FOREIGN KEY (`tipoelemento`) REFERENCES `tiposelementos` (`NombreElemento`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +74,7 @@ CREATE TABLE `reservas` (
 
 LOCK TABLES `reservas` WRITE;
 /*!40000 ALTER TABLE `reservas` DISABLE KEYS */;
-INSERT INTO `reservas` VALUES (3,'romi','2017-10-04 11:00:00','2017-10-04 12:00:00','samsung','notebook',NULL),(6,'analia94','2017-11-01 12:00:00','2018-01-01 13:00:00','pry1','proyector',NULL),(7,'juan','2017-12-03 11:30:00','2017-12-04 11:00:00','bangho','notebook',NULL),(8,'juanperez','2017-10-03 08:00:00','2017-10-04 10:30:00','samsung','notebook',NULL),(11,'analia94','2017-10-06 17:00:00','2017-10-06 18:30:00','bangho','notebook',NULL);
+INSERT INTO `reservas` VALUES (30,'analia94','2018-01-26 17:01:00','2018-01-26 18:00:00','acer','tablet','dfg');
 /*!40000 ALTER TABLE `reservas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,11 +88,14 @@ DROP TABLE IF EXISTS `tiposelementos`;
 CREATE TABLE `tiposelementos` (
   `idElementos` int(11) NOT NULL AUTO_INCREMENT,
   `NombreElemento` varchar(45) NOT NULL,
-  `CantidadElementos` varchar(45) NOT NULL,
+  `CantidadElementos` int(11) NOT NULL,
+  `Autorizado` varchar(45) DEFAULT NULL,
+  `anterioridadminima` int(11) DEFAULT NULL,
+  `diasmaxreserva` int(11) DEFAULT NULL,
   PRIMARY KEY (`idElementos`),
   KEY `NombreElementos_idx` (`NombreElemento`),
   KEY `NombreElementosReserva_idx` (`NombreElemento`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +104,7 @@ CREATE TABLE `tiposelementos` (
 
 LOCK TABLES `tiposelementos` WRITE;
 /*!40000 ALTER TABLE `tiposelementos` DISABLE KEYS */;
-INSERT INTO `tiposelementos` VALUES (1,'notebook','3'),(4,'tablets','2'),(6,'proyector','1'),(47,'netbook','2'),(48,'microfono','4');
+INSERT INTO `tiposelementos` VALUES (4,'tablet',1,'user',1,7),(6,'proyector',2,'user',NULL,NULL),(47,'netbook',3,'user',NULL,NULL),(48,'microfono',4,'encargado',NULL,NULL),(49,'celulares',2,'encargado',NULL,NULL),(51,'coca',4,'user',NULL,NULL),(52,'asd',12,'encargado',NULL,NULL);
 /*!40000 ALTER TABLE `tiposelementos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,8 +124,9 @@ CREATE TABLE `usuarios` (
   `Contraseña` varchar(45) DEFAULT NULL,
   `habilitado` varchar(45) DEFAULT NULL,
   `Categoria` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`IdUsuario`,`Usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,7 +135,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'123','jose','piccoli','jpiccoli','123','inhabilitado','admin'),(2,'321','analia','salazar','analia94','321','habilitado','user'),(3,'12345','juan','jose','juan','321123','inhabilitado','user'),(4,'123123','pipo','antonio','pipon','1234','habilitado','user'),(5,'1234563','romina','scaraca','romi','123456','habilitado','user'),(17,'4569','juan','perez','juanperez','789','habilitado','user');
+INSERT INTO `usuarios` VALUES (1,'123','jose','piccoli','jpiccoli','123','habilitado','admin','jpiccoli@gmai.com'),(2,'321','analia','salazar','analia94','321','habilitado','user','analia94@gmail.com'),(3,'12345','juan','jose','juan','321123','habilitado','user','juan@gmail.com'),(41,'123','123','123','123','123','habilitado','user','123@yahoo.com'),(43,'345345','ksdfnkjs','dfgdfg','dfgdfg','dfgdfg','inhabilitado','user','123123@hotmail.com'),(44,'1234','pipo','pipo','pipo','123','inhabilitado','encargado','asd@asd.com');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -144,4 +148,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-07 20:48:46
+-- Dump completed on 2018-01-25  2:15:57

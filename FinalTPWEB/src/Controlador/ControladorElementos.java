@@ -23,6 +23,10 @@ public class ControladorElementos {
 		return de.SeleccionarTiposElementos(TipoEl);
 		
 	}
+	public int CantidadElementoTipoElemento(String tipoel){
+		return de.CantidadElementoTipoElemento(tipoel);
+	}
+	
 public  ArrayList<Elemento > AgregarTipos(){
 		
 		return de.ConsultaTodosTipos();

@@ -24,7 +24,9 @@ public class Login {
 					p.setApellido(rs.getString("ApellidoUsuario"));				
 					p.setDNI(rs.getString("DNI"));
 					p.setCategoria(rs.getString("Categoria"));
-					p.setEstados(rs.getString("habilitado"));				
+					p.setEstados(rs.getString("habilitado"));
+					p.setUsuario(w.getUsuario());
+					
 					}
 			} catch (SQLException e) {				
 			 throw	e=new SQLException("usuario o pass incorrectas");

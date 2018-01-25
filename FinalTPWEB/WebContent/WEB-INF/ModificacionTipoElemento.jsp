@@ -29,6 +29,14 @@
 			<label for="cantidadelemento" class="sr-only">Cantidad Tipo Elemento</label> <input
 				name="cantidadelemento" id="cantidadelemento" class="form-control"
 				placeholder="<%=request.getAttribute("cantidad") %>" required type="number"> <Br>
+				<label for="anticipacion" class="sr-only">Días Anticipacion Reserva</label> <input
+				name="anticipacion" id="anticipacion" class="form-control"
+				placeholder="<%=request.getAttribute("anticipacion") %>" required type="number" autofocus="">
+			<Br>
+			<label for="maximo" class="sr-only">Dìas Maximos Reserva</label> <input
+				name="maximo" id="maximo" class="form-control"
+				placeholder="<%=request.getAttribute("maximo") %>" required type="number" autofocus="">
+			<Br>
 				
 			<input type="hidden"
 				name="idelemento" value="<%=request.getAttribute("id") %>" >

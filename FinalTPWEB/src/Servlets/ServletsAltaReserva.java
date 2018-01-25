@@ -44,16 +44,29 @@ public class ServletsAltaReserva extends HttpServlet {
 		ArrayList<Reservas> re = new ArrayList<Reservas>();
 		ControladorElementos ce= new ControladorElementos();
 		ControladorReservas cr= new ControladorReservas();	
-
+		String TipoEl =request.getParameter("tipoel");
 		SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-	
+		String user= request.getParameter("user");
+		
+		
+		Reservas r = new Reservas();
+		r=cr.ContarReservas(TipoEl, user);
+		
+		
 		java.util.Date FechaHoraIni = null;
 		java.util.Date FechaHoraFin = null;
 		try {
 			FechaHoraIni = f.parse(request.getParameter("fechaini")+" "+request.getParameter("horaini"));
 			FechaHoraFin=f.parse(request.getParameter("fechafin")+" "+request.getParameter("horafin"));			
-
-		
+	if(r.getCantidadReservas()>=ce.CantidadElementoTipoElemento(TipoEl)){
+		Exception exp = new Exception("Supero la cantidad de ("+ce.CantidadElementoTipoElemento(TipoEl)+") reservas de este tipo de elemento");
+		request.setAttribute("error", exp.getMessage());
+		String url="ServletsVerTipoElementos";
+		request.setAttribute("url", url );
+		request.setAttribute("opcion", 7);
+		request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+		}
+		else{
 		if(!((FechaHoraIni.compareTo(FechaHoraFin))!=1 & (FechaHoraIni.compareTo(FechaHoraFin))<0)){				
 		
 			Exception exp = new Exception("La Fecha fin es menor a la Fecha inicial");
@@ -66,13 +79,13 @@ public class ServletsAltaReserva extends HttpServlet {
 		else{
 			
 			
-			String TipoEl =request.getParameter("tipoel");			
+					
 			
 			int FechaM=0;			
 			FechaM = ce.ConsultarTiempoAnterioridadReserva(TipoEl);			
 			Date hoy = new Date();
 			
-			//https://github.com/pedro96x/TPWeb/blob/master/TP%20Web/src/servlet/aNuevaReserva2.java		
+					
 			if(((FechaHoraIni.getTime()-hoy.getTime())/86400000) < FechaM){
 				
 				Exception e = new Exception("Debe reservar con mas dias de anticipacion(como minimo "+FechaM+" dias)");
@@ -112,6 +125,8 @@ public class ServletsAltaReserva extends HttpServlet {
 			}
 			
 		}
+		}
+			
 		
 		 catch (ParseException e) {
 		e= new ParseException("Formato de Fecha Incorrecto",0);
@@ -129,7 +144,9 @@ public class ServletsAltaReserva extends HttpServlet {
 				request.setAttribute("opcion", 7);
 				request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		}
-	}}
+	}
+		}
+		
 			
 
 

@@ -40,6 +40,8 @@ public class ServletsRecuperarTipoElemento extends HttpServlet {
 		request.setAttribute("nombre",nombre);
 		request.setAttribute("id",e.getId_elemento());
 		request.setAttribute("autorizado", e.getAutorizado());
+		request.setAttribute("anticipacion", e.getAnticipacionDiasReserva());
+		request.setAttribute("maximo", e.getCantidadDiasMaximosReserva());
 		request.getRequestDispatcher("WEB-INF/ModificacionTipoElemento.jsp").forward(request,response);
 	
 	}

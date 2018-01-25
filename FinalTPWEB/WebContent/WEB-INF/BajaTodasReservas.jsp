@@ -27,8 +27,8 @@
            <th>USUARIO</th>
            <th>ELEMENTO</th>
            <th>TIPO ELEMENTO</th>
-           <th>FECHA HS INICIO</th>
-           <th>FECHA HS FIN</th>
+           <th>FECHA INICIO</th>
+           <th>FECHA FIN</th>
        </tr>
    </thead>
    <tbody>

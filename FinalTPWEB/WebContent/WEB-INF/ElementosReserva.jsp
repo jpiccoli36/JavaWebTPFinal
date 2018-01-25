@@ -17,6 +17,7 @@
 		<form class="form-signin" name="signin" action="ServletsAltaReserva"
 			method="post">
 			<h2 class="form-signin-heading">Reserva</h2>
+			<input type="hidden"name="user" value="<%=((Persona)session.getAttribute("user")).getUsuario()%> ">
 			<label for="fechaini" class="sr-only">Fecha Inicio</label> <input
 				name="fechaini" id="fechaini" class="form-control"
 				placeholder="dd/mm/yyyy" required="" autofocus="" type=""> <label

@@ -38,6 +38,8 @@ public class ServletsModificarTipoElemento extends HttpServlet {
 		e.setNombre_elemento(nombre);
 		e.setCantidad_elemento(cantidad);
 		e.setAutorizado(autorizado);
+		e.setAnticipacionDiasReserva(Integer.parseInt(request.getParameter("anticipacion")));
+		e.setCantidadDiasMaximosReserva(Integer.parseInt(request.getParameter("maximo")));
 		ce.ModificarTipoElementos(e);	
 		request.getRequestDispatcher("WEB-INF/Admin.html").forward(request, response);
 		
