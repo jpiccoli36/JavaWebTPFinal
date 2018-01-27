@@ -27,8 +27,8 @@
 				}
 			%>
 		</select> <label for="detalle" class="sr-only">Detalle</label> <input
-			name="detalle" id="detalle" class="form-control"
-			placeholder=" Detalle" required="" type=""> <Br>
+			name="detalle" id="detalle" 
+			placeholder=" Detalle" > <Br>
 			<input type="hidden"
 				name="horaini" value=<%=request.getParameter("horaini") %> >
 				<input type="hidden"

@@ -13,7 +13,7 @@ public class Login {
 		
 		
 			try {
-				stmt =FactoryConexion.getInstancia().getConn().prepareStatement("select NombreUsuario, ApellidoUsuario,DNI,Categoria,habilitado from usuarios where Usuario= ? and Contraseña=? and habilitado='habilitado'");
+				stmt =FactoryConexion.getInstancia().getConn().prepareStatement("select NombreUsuario, ApellidoUsuario,DNI,Categoria,habilitado,email from usuarios where Usuario= ? and Contraseña=? and habilitado='habilitado'");
 				stmt.setString(1,w.getUsuario());
 				stmt.setString(2, w.getContraseña());		
 				
@@ -26,6 +26,7 @@ public class Login {
 					p.setCategoria(rs.getString("Categoria"));
 					p.setEstados(rs.getString("habilitado"));
 					p.setUsuario(w.getUsuario());
+					p.setEmail(rs.getString("email"));
 					
 					}
 			} catch (SQLException e) {				

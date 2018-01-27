@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Controlador.ControladorReservas;
+import Entidades.Persona;
+import Util.Mails;
 
 @WebServlet("/ServletsReservar")
 public class ServletsReservar extends HttpServlet {
@@ -42,15 +44,21 @@ public class ServletsReservar extends HttpServlet {
 			FechaHoraFin = f.parse(fechahsfin);
 			
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			
+			e.printStackTrace();		}
+		
 
 		cr.ReservarElemento((String) request.getSession().getAttribute("usuario"), FechaHoraIni, FechaHoraFin,
 				request.getParameter("elemento"), request.getParameter("tipoel"), request.getParameter("detalle"));
-
+		
+		Mails.getInstance().send(((Persona)request.getSession().getAttribute("user")).getEmail(),"Reserva","Sr/a "+((Persona) request.getSession().getAttribute("user")).getApellido()+
+				" "+
+				((Persona) request.getSession().getAttribute("user")).getNombre()+" usted ha realizado una reserva desde la fecha: "+fechahsini+
+				" hasta la fecha: "+fechahsfin+" de un/a  "+request.getParameter("tipoel")+"  "+request.getParameter("elemento"));
+		
+	
 		request.getRequestDispatcher("WEB-INF/Usuario.jsp").forward(request, response);
-
+	
 	}
 	}
 

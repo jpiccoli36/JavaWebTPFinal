@@ -114,7 +114,16 @@ public class ServletsAltaReserva extends HttpServlet {
 				request.setAttribute("tipoel",TipoEl);
 					
 				
-				re=cr.ConsultaElementosDisponibles(FechaHoraIni, FechaHoraFin, TipoEl)	;
+				re=cr.ConsultaElementosDisponibles(FechaHoraIni, FechaHoraFin, TipoEl);
+				if(re.size()==0){
+					Exception e= new Exception("NO existen elementos disponibles de ese tipo");
+					request.setAttribute("error", e.getMessage());
+					String url="ServletsVerTipoElementos";
+					request.setAttribute("url", url );
+					request.setAttribute("opcion", 7);
+					request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+				}
+				else{
 				request.setAttribute("listaelementos", re);		
 				request.getRequestDispatcher("WEB-INF/AltaReserva.jsp").forward(request, response);
 				}
@@ -125,10 +134,11 @@ public class ServletsAltaReserva extends HttpServlet {
 			}
 			
 		}
-		}
-			
+		}	
+	}	
 		
 		 catch (ParseException e) {
+			 
 		e= new ParseException("Formato de Fecha Incorrecto",0);
 		request.setAttribute("error", e.getMessage());
 		String url="ServletsVerTipoElementos";

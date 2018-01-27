@@ -24,10 +24,10 @@
 				for="horaini" class="sr-only">Hora Inicio</label> <input
 				name="horaini" id="horaini" class="form-control" placeholder="hh:mm"
 				required="" autofocus="" type=""> <Br> <label
-				for="fechafin" class="sr-only">Fecha-Hora Fin</label> <input
+				for="fechafin" class="sr-only">Fecha Fin</label> <input
 				name="fechafin" id="fechafin" class="form-control"
 				placeholder="dd/mm/yyyy" required="" type=""> <label
-				for="horafin" class="sr-only">Fecha-Hora Fin</label> <input
+				for="horafin" class="sr-only">Hora Fin</label> <input
 				name="horafin" id="horafin" class="form-control" placeholder="hh:mm"
 				required="" type=""> <Br> <select name="tipoel">
 
