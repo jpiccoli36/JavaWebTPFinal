@@ -6,13 +6,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Habilitar o Inhabilitar Usuarios</title>
+<link href="style/fondo.css" rel="stylesheet">
 <meta charset="ISO-8859-1">
 
 </head>
 <body>
+<h1>Sistema Informatico Reservas </h1>
 
 	<form class="form-signin" name="signin" action="ServletsHabilitarOInhabilitarUsuario" method="post">
-		<h1 class="form-signin-heading">Habilitar Usuario</h1>
+		<h2 class="form-signin-heading">Habilitar Usuario</h2>
 		<% ArrayList<Persona> per = (ArrayList<Persona>) request.getAttribute("listausu");	%>
 		<label>Seleccionar Usuario:</label>
 				<select name="idusuario">

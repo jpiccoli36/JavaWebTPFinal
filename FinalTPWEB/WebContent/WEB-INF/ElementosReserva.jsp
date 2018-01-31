@@ -8,10 +8,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link href="style/fondo.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Elemento a Reservar</title>
 </head>
 <body>	
+<h1>Sistema Informatico Reservas </h1>
 	<div class="container">
 
 		<form class="form-signin" name="signin" action="ServletsAltaReserva"

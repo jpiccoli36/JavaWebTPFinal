@@ -5,12 +5,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
+<link href="style/fondo.css" rel="stylesheet">
+<title>Baja Elementos</title>
 <meta http-equiv="" content="text/html; charset=ISO-8859-1">
 
 </head>
 <body>
-
+<h1>Sistema Informatico Reservas </h1>
 	<form class="form-signin" name="signin" action="ServletsBajaElemento"
 		method="post">
 		<h2 class="form-signin-heading">Eliminar Elemento</h2>

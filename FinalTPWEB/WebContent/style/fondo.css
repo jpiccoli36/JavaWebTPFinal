@@ -1,0 +1,12 @@
+body{
+background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJpx-GA6BB64vJSYzrvXgc_xCVszr0x4KUCeStBTxmxYvdx-eX);background-repeat:no-repeat;
+background-position:right 10px ,top;
+
+}
+h1{
+	text-align: right;
+	margin-top:5px;
+	padding-left: 100px;
+	float: right;	
+	
+}

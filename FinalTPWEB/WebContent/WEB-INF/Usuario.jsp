@@ -4,6 +4,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>Menu Usuario</title>
+<link href="style/fondo.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style type="text/css">
 * {
@@ -49,9 +51,10 @@ ul, ol {
 </style>
 </head>
 <body>
-	<h1>
+<h1>Sistema Informatico Reservas </h1>
+	<h2>
 	Bienvenido
-		<%=((Persona)session.getAttribute("user")).getNombre() %></h1>
+		<%=((Persona)session.getAttribute("user")).getNombre() %></h2>
 	<div id="header" style="width: 100%">
 		<ul class="nav">	
 	<li><a>Reservas</a>

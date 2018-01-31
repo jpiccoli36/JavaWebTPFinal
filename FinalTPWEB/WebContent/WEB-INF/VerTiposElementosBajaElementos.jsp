@@ -7,10 +7,11 @@
 <head>
 
 <meta http-equiv="" content="text/html; charset=ISO-8859-1">
-
+<link href="style/fondo.css" rel="stylesheet">
+<title>Ver Tipos Elementos Baja Elementos</title>
 </head>
 <body>
-
+<h1>Sistema Informatico Reservas </h1>
 <form class="form-signin" name="signin" action="ServletsRecuperarElemento"
 			method="post">
 			<h2 class="form-signin-heading">Eliminar Elemento</h2>
