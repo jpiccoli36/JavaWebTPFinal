@@ -4,6 +4,14 @@ import java.io.Serializable;
 
 public class Elemento implements Serializable {
 	int id_elemento;
+	int CantidadDiasMaximosReserva;
+	int AnticipacionDiasReserva;
+	int idElementosReserva;
+	String NombreElementoReserva;
+	String tipoElementoReserva;
+	String autorizado;
+	int cantidad_elemento;
+	String nombre_elemento;
 
 	public Elemento() {
 
@@ -23,10 +31,8 @@ public class Elemento implements Serializable {
 	public void setAnticipacionDiasReserva(int anticipacionDiasReserva) {
 		AnticipacionDiasReserva = anticipacionDiasReserva;
 	}
-	int CantidadDiasMaximosReserva;
-	int AnticipacionDiasReserva;
+
 	
-	int idElementosReserva;
 	public int getIdElementosReserva() {
 		return idElementosReserva;
 	}
@@ -51,9 +57,7 @@ public class Elemento implements Serializable {
 		this.tipoElementoReserva = tipoElementoReserva;
 	}
 
-	String NombreElementoReserva;
-	String tipoElementoReserva;
-	String autorizado;
+
 
 	public String getAutorizado() {
 		return autorizado;
@@ -93,7 +97,6 @@ public class Elemento implements Serializable {
 		this.nombre_elemento = nombre_elemento;
 	}
 
-	int cantidad_elemento;
-	String nombre_elemento;
+
 
 }

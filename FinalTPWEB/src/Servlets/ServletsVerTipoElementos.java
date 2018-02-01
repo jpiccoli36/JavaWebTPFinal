@@ -43,26 +43,26 @@ public class ServletsVerTipoElementos extends HttpServlet {
 			
 			break;
 		case 2:			
-			ae=ce.ConsultaTodosTiposElementos();
+			ae=ce.ConsultaTodosTiposElementosAdmin();
 			request.setAttribute("listaelementos", ae);
 			request.getRequestDispatcher("WEB-INF/SeleccionarElementoReserva.jsp").forward(request, response);
 			
 			break;
 		case 3:
 			
-			ae=ce.ConsultaTodosTiposElementos();		
+			ae=ce.ConsultaTodosTiposElementosAdmin();		
 			request.setAttribute("listaele",ae);
 			request.getRequestDispatcher("WEB-INF/VerElementosModificacion.jsp").forward(request,response);
 			
 			break;
 		case 4:		
-			ae=ce.ConsultaTodosTiposElementos();
+			ae=ce.ConsultaTodosTiposElementosAdmin();
 			request.setAttribute("listaele",ae);
 			request.getRequestDispatcher("WEB-INF/VerTiposElementosBajaElementos.jsp").forward(request, response);
 			break;
 		case 5:
 			
-		ae=ce.ConsultaTodosTiposElementos();
+		ae=ce.ConsultaTodosTiposElementosAdmin();
 		request.setAttribute("listaele", ae);
 		request.getRequestDispatcher("WEB-INF/VerTiposElementosModificarElementos.jsp").forward(request, response);			
 			break;
@@ -73,7 +73,7 @@ public class ServletsVerTipoElementos extends HttpServlet {
 			request.setAttribute("nombre", e.getNombreElementoReserva());
 			request.setAttribute("tipoelemento", e.getTipoElementoReserva());
 			request.setAttribute("id", e.getIdElementosReserva());		
-			ae=ce.ConsultaTodosTiposElementos();
+			ae=ce.ConsultaTodosTiposElementosAdmin();
 			request.setAttribute("listatipo", ae);
 			request.getRequestDispatcher("WEB-INF/ModificarElemento.jsp").forward(request, response);
 		break;

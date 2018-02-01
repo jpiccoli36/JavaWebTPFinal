@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import Controlador.ControladorUsuario;
 import Entidades.Persona;
 
-/**
- * Servlet implementation class AltaUsuario
- */
+
 @WebServlet({ "/ServletsAltaUsuario","/AltaUsuario", "/altausuario", "/Altausuarios", "/altausuarios", "/altaUsuarios" })
 public class ServletsAltaUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;       
@@ -24,11 +22,7 @@ public class ServletsAltaUsuario extends HttpServlet {
            }
 
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
+	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String DNI=request.getParameter("DNI");

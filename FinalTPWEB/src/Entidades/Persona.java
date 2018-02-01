@@ -13,6 +13,8 @@ public class Persona implements Serializable{
 	String usuario;
 	String Categoria;
 	String Email;
+	String contraseña;
+	String Estados;
 	
 	public String getEmail() {
 		return Email;
@@ -20,8 +22,6 @@ public class Persona implements Serializable{
 	public void setEmail(String email) {
 		Email = email;
 	}
-	String Estados;
-	
 
 	public int getId() {
 		return id;
@@ -54,9 +54,8 @@ public class Persona implements Serializable{
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
 	}
-	String contraseña;
-	public Persona(){
-		
+	
+	public Persona(){		
 	}
 	public Persona(String nombre, String apellido, String dni, int id) {
 		super();

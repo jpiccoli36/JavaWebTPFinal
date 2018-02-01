@@ -54,7 +54,7 @@ public class ServletsReservar extends HttpServlet {
 		Mails.getInstance().send(((Persona)request.getSession().getAttribute("user")).getEmail(),"Reserva","Sr/a "+((Persona) request.getSession().getAttribute("user")).getApellido()+
 				" "+
 				((Persona) request.getSession().getAttribute("user")).getNombre()+" usted ha realizado una reserva desde la fecha: "+fechahsini+
-				" hasta la fecha: "+fechahsfin+" de un/a  "+request.getParameter("tipoel")+"  "+request.getParameter("elemento"));
+				" hasta la fecha: "+fechahsfin+" de un/a  "+request.getParameter("tipoel")+"  "+request.getParameter("elemento")+"/n /n Gracias por confiar en SIR.");
 		
 	
 		request.getRequestDispatcher("WEB-INF/Usuario.jsp").forward(request, response);
