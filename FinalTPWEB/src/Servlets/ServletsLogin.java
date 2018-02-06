@@ -52,12 +52,12 @@ public class ServletsLogin extends HttpServlet {
 
 		} catch (java.sql.SQLException e) {
 			request.setAttribute("error", "Error en la conexion");
-			request.setAttribute("url", "login.html");
+			request.setAttribute("url", "index.html");
 			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		} catch (Exception k) {
 
 			request.setAttribute("error", "Usuario/Password Incorrecta o Usuario Inhabilitado");
-			request.setAttribute("url", "login.html");
+			request.setAttribute("url", "index.html");
 			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 
 		}

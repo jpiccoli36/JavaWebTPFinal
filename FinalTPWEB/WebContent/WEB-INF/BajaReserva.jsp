@@ -20,7 +20,7 @@
 
 		
 		<form action="ServletsCancelarReservaUsuario" method="post">
-		<label for="idreserva" class="sr-only">User</label> <input
+		<label for="idreserva" class="sr-only">ID-Reserva</label> <input
 				name="idreserva" id="idreserva" class="form-control" placeholder="ID Reserva"
 				required="" autofocus="" type="number">
 		<input type="submit" value="Cancelar Reserva" />
