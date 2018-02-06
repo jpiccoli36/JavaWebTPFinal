@@ -10,6 +10,7 @@ public class FactoryConexion {
 private static FactoryConexion instancia;
 private Connection conn;
 private String host="localhost";
+		//node14280-sir-tpweb.jelastic.saveincloud.net";
 private String port="3306";
 private String user="root";
 private String password="root";
