@@ -30,7 +30,7 @@ CREATE TABLE `elementos` (
   KEY `Telementos_idx` (`NombreElementoReserva`),
   KEY `TiposEl_idx` (`TipoElemento`,`IDElementosReserva`),
   CONSTRAINT `TiposEl` FOREIGN KEY (`TipoElemento`) REFERENCES `tiposelementos` (`NombreElemento`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `elementos` (
 
 LOCK TABLES `elementos` WRITE;
 /*!40000 ALTER TABLE `elementos` DISABLE KEYS */;
-INSERT INTO `elementos` VALUES (1,'HP','Notebook'),(2,'Acer','Notebook'),(3,'Asus','Notebook'),(4,'Vaio','Notebook'),(5,'BGH','Notebook'),(6,'Epson','Proyector'),(7,'ViewSonic','Proyector'),(8,'Xiaomi','Proyector'),(9,'Epson','Escaner'),(10,'HP','Escaner'),(11,'Samsung','Escaner'),(12,'Ipad','Tablet'),(13,'Samsung','Tablet'),(14,'BGH','Tablet'),(15,'Admiral','Tablet'),(16,'Laboratorio','Salon'),(17,'SUM','Salon'),(18,'Anfiteatro','Salon'),(19,'Salon de Actos','Salon'),(21,'Razer','Auriculares'),(22,'Hyperx','Auriculares'),(23,'Logitech','Auriculares'),(24,'Noganet','Auriculares'),(25,'Genius','Auriculares');
+INSERT INTO `elementos` VALUES (1,'HP','Notebook'),(2,'Acer','Notebook'),(3,'Asus','Notebook'),(4,'Vaio','Notebook'),(5,'BGH','Notebook'),(6,'Epson','Proyector'),(7,'ViewSonic','Proyector'),(8,'Xiaomi','Proyector'),(9,'Epson','Escaner'),(10,'HP','Escaner'),(11,'Samsung','Escaner'),(12,'Ipad','Tablet'),(13,'Samsung','Tablet'),(14,'BGH','Tablet'),(15,'Admiral','Tablet'),(16,'Laboratorio','Salon'),(17,'SUM','Salon'),(18,'Anfiteatro','Salon'),(19,'Salon de Actos','Salon'),(21,'Razer','Auriculares'),(22,'Hyperx','Auriculares'),(23,'Logitech','Auriculares'),(24,'Noganet','Auriculares'),(25,'Genius','Auriculares'),(26,'Java','Laboratorio'),(27,'C#','Laboratorio');
 /*!40000 ALTER TABLE `elementos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,7 +64,7 @@ CREATE TABLE `reservas` (
   KEY `tipoelem_idx` (`tipoelemento`),
   CONSTRAINT `elem` FOREIGN KEY (`elemento`) REFERENCES `elementos` (`NombreElementoReserva`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `tipoelem` FOREIGN KEY (`tipoelemento`) REFERENCES `tiposelementos` (`NombreElemento`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,6 +73,7 @@ CREATE TABLE `reservas` (
 
 LOCK TABLES `reservas` WRITE;
 /*!40000 ALTER TABLE `reservas` DISABLE KEYS */;
+INSERT INTO `reservas` VALUES (1,'analia94','2018-02-04 15:00:00','2018-02-04 17:00:00','HP','Notebook','sdf'),(2,'analia94','2018-02-04 15:00:00','2018-02-04 16:00:00','Acer','Notebook','sdf');
 /*!40000 ALTER TABLE `reservas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +94,7 @@ CREATE TABLE `tiposelementos` (
   PRIMARY KEY (`idElementos`),
   KEY `NombreElementos_idx` (`NombreElemento`),
   KEY `NombreElementosReserva_idx` (`NombreElemento`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,7 +103,7 @@ CREATE TABLE `tiposelementos` (
 
 LOCK TABLES `tiposelementos` WRITE;
 /*!40000 ALTER TABLE `tiposelementos` DISABLE KEYS */;
-INSERT INTO `tiposelementos` VALUES (1,'Notebook',3,'user',2,7),(2,'Proyector',1,'user',1,8),(3,'Escaner',2,'encargado',3,2),(4,'Tablet',1,'user',1,3),(5,'Salon',1,'encargado',4,2),(6,'Auriculares',5,'user',2,1);
+INSERT INTO `tiposelementos` VALUES (1,'Notebook',1,'user',2,7),(2,'Proyector',1,'user',1,8),(3,'Escaner',2,'encargado',3,2),(4,'Tablet',1,'user',1,3),(5,'Salon',1,'encargado',4,2),(6,'Auriculares',5,'user',2,1),(7,'Laboratorio',3,'encargado',3,5);
 /*!40000 ALTER TABLE `tiposelementos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,4 +147,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-31 16:06:41
+-- Dump completed on 2018-02-08 22:11:50
